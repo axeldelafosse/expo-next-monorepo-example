@@ -1,0 +1,13 @@
+diff --git a/node_modules/sentry-expo/plugin/build/withSentryIOS.js b/node_modules/sentry-expo/plugin/build/withSentryIOS.js
+index 5deaccc..f91ec84 100644
+--- a/node_modules/sentry-expo/plugin/build/withSentryIOS.js
++++ b/node_modules/sentry-expo/plugin/build/withSentryIOS.js
+@@ -57,7 +57,7 @@ function modifyExistingXcodeBuildScript(script) {
+     code =
+         'export SENTRY_PROPERTIES=sentry.properties\n' +
+             'export EXTRA_PACKAGER_ARGS="--sourcemap-output $DERIVED_FILE_DIR/main.jsbundle.map"\n' +
+-            code.replace(/^.*?\/(packager|scripts)\/react-native-xcode\.sh\s*/m, (match) => `../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ${match}`);
++            code.replace(/^.*?\/(packager|scripts)\/react-native-xcode\.sh\s*/m, (match) => `export PROJECT_ROOT="$PROJECT_DIR/.."\n\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode\n\nexport PROJECT_ROOT="$PROJECT_DIR"\n\n${match}`);
+     script.shellScript = JSON.stringify(code);
+ }
+ exports.modifyExistingXcodeBuildScript = modifyExistingXcodeBuildScript;

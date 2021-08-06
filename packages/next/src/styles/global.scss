@@ -1,0 +1,60 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-color: light;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+input,
+textarea,
+select,
+button {
+  font-family: Arial, Helvetica Neue, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+p {
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+*:not(input):not(textarea):not([contenteditable]) {
+  -webkit-user-select: none;
+}
+
+html {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  ::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

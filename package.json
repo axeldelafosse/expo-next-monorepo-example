@@ -1,0 +1,20 @@
+{
+  "name": "expo-next-monorepo-example",
+  "private": true,
+  "devDependencies": {
+    "expo-yarn-workspaces": "^1.5.1",
+    "patch-package": "^6.4.7"
+  },
+  "workspaces": [
+    "packages/app",
+    "packages/expo",
+    "packages/next"
+  ],
+  "scripts": {
+    "start": "cd packages/expo && yarn start:expo",
+    "dev": "cd packages/next && yarn dev",
+    "build": "cd packages/next && yarn build",
+    "deploy": "vercel --prod --no-clipboard",
+    "postinstall": "patch-package"
+  }
+}
