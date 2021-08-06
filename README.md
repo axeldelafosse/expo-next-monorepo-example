@@ -69,7 +69,21 @@ Demo: https://expo-next-monorepo-example.vercel.app
 
 - Add your web-only packages here
 - Deploy to Vercel with `yarn deploy` -- if it fails, make sure to configure your project correctly:
-  go in your project settings on Vercel and set the "Framework Preset" to Next.js and the "Root Directory" to `packages/next`.
+  go to your project settings on Vercel and set the "Framework Preset" to Next.js and the "Root Directory" to `packages/next`.
+
+## What should I do next?
+
+Here are some ideas to get you started:
+
+- Use React Navigation
+- Style your app with Dripsy
+- Animate your app with Moti
+- Do some requests with SWR or Apollo Client
+- Build cool things with Expo Modules
+- Create a custom development client
+- Add Sentry
+- Add CI/CD with EAS via GitHub Actions
+- ...
 
 ## Related monorepo examples
 

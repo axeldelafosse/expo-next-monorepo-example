@@ -5109,19 +5109,6 @@ expo-asset@~8.3.3:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
-expo-av@~9.2.2:
-  version "9.2.3"
-  resolved "https://registry.yarnpkg.com/expo-av/-/expo-av-9.2.3.tgz#aa54da9c0bc1c3eb0251c1da17f5123f15d4f82f"
-  integrity sha512-If6+JqB2mqMKJxHgN8UAx75CWH4kPAzx2EyP+MFmcPVpcSBJZ/Fj+EfI+GJnk3tHPSB2Eld1IFEYOIJCkN/26Q==
-  dependencies:
-    "@expo/config-plugins" "^3.0.0"
-    expo-modules-core "~0.2.0"
-
-expo-blur@~9.0.3:
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-9.0.3.tgz#5095b5bd04d000f73b351d0e4736767b86b49bbd"
-  integrity sha512-7jMqzo53eg5t9Uc1Tg+yGu9lKL9the4CWAQO0kC6YMhrsDiB13mwOUesC+IScHDTSUKNMGcHI8kN+OmvEWfPig==
-
 expo-constants@11.0.1, expo-constants@~11.0.1:
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-11.0.1.tgz#8a33d9702d03289ab68d6de2bbeb2bbc9654734c"
@@ -5130,15 +5117,6 @@ expo-constants@11.0.1, expo-constants@~11.0.1:
     "@expo/config" "^4.0.0"
     expo-modules-core "~0.2.0"
     uuid "^3.3.2"
-
-expo-contacts@~9.2.5:
-  version "9.2.5"
-  resolved "https://registry.yarnpkg.com/expo-contacts/-/expo-contacts-9.2.5.tgz#8af20a03cd9ceb1bc0c9c9fdc0ab91cd1854429e"
-  integrity sha512-7QYPuJX7c2l2f8d+92i1vimTckOifh0MjkJSllo1e8Cpr4qqvk+6CDItzvlD3dV6AcdMan0OCt2ANFp9q55BGA==
-  dependencies:
-    "@expo/config-plugins" "^3.0.0"
-    expo-modules-core "~0.2.0"
-    uuid "^3.4.0"
 
 expo-dev-client@^0.3.0:
   version "0.3.0"
