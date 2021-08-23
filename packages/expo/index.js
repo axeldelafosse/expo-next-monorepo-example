@@ -1,6 +1,5 @@
-import { registerErrorHandlers } from 'expo-dev-launcher';
-registerErrorHandlers();
-
+import 'expo-dev-client';
+import 'expo-dev-launcher';
 import 'expo/build/Expo.fx';
 import { activateKeepAwake } from 'expo-keep-awake';
 import { registerRootComponent } from 'expo';

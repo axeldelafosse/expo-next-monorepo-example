@@ -3,7 +3,9 @@ const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules')([
   'app',
   '@gorhom/bottom-sheet',
-  '@gorhom/portal'
+  '@gorhom/portal',
+  'dripsy',
+  '@dripsy/core'
 ]);
 
 const nextConfig = {};
