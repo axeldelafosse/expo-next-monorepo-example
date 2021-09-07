@@ -8,7 +8,7 @@
     "postinstall": "cd ../.. && npx patch-package"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^11.1.0",
+    "@next/bundle-analyzer": "^11.1.2",
     "app": "*",
     "next": "^11.1.0",
     "next-fonts": "^1.5.1",
