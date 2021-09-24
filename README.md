@@ -72,6 +72,10 @@ Demo: https://expo-next-monorepo-example.vercel.app
 - Deploy to Vercel with `yarn deploy` -- if it fails, make sure to configure your project correctly:
   go to your project settings on Vercel and set the "Framework Preset" to Next.js and the "Root Directory" to `packages/next`.
 
+## Navigation
+
+Here is an example of how to handle navigation: https://github.com/axeldelafosse/expo-next-monorepo-example/pull/1
+
 ## What should I do next?
 
 Here are some ideas to get you started:
@@ -90,4 +94,3 @@ Here are some ideas to get you started:
 
 - https://github.com/expo/examples/tree/master/with-yarn-workspaces
 - https://github.com/byCedric/eas-monorepo-example
-- https://github.com/nandorojo/expo-next-monorepo
