@@ -11,6 +11,7 @@ import { AppProps } from 'next/app';
 import { DripsyProvider } from 'dripsy';
 
 import { theme } from 'app/theme';
+import { Navigation } from 'app/navigation';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -26,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <DripsyProvider theme={theme}>
         <SafeAreaProvider>
-          <Component {...pageProps} />
+          <Navigation Component={Component} pageProps={pageProps} />
         </SafeAreaProvider>
       </DripsyProvider>
     </>
