@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
-    "@expo/next-adapter": "^3.0.5",
+    "@expo/next-adapter": "^3.1.0",
     "@types/react": "^17.0.19",
     "@types/react-native": "~0.63.2",
     "expo-yarn-workspaces": "^1.5.1",
