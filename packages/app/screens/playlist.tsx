@@ -1,5 +1,4 @@
 import React from 'react';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from 'dripsy';
 
 import { createParam } from 'app/navigation/use-param';
@@ -17,11 +16,5 @@ export default function PlaylistScreen({
 }: PlaylistScreenProps) {
   const [id, setId] = useParam('id');
 
-  return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <Text sx={{ color: 'white' }}>Playlist {id}</Text>
-      </SafeAreaView>
-    </SafeAreaProvider>
-  );
+  return <Text sx={{ color: 'white' }}>Playlist {id}</Text>;
 }

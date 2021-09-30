@@ -12,7 +12,7 @@ enableScreens(true);
 export default function App() {
   return (
     <DripsyProvider theme={theme}>
-      <SafeAreaProvider>
+      <SafeAreaProvider style={{ backgroundColor: 'black' }}>
         <StatusBar style="dark" />
         <Navigation />
       </SafeAreaProvider>

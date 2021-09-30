@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <DripsyProvider theme={theme}>
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{ backgroundColor: 'black' }}>
           <Navigation Component={Component} pageProps={pageProps} />
         </SafeAreaProvider>
       </DripsyProvider>
