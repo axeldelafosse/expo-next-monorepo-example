@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useRouter } from 'next/router';
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon';
-
-import HomeNavigator from 'app/pages/home';
-import PlaylistsNavigator from 'app/pages/playlists';
-import ProfileNavigator from 'app/pages/profile';
+import type { NextNavigationProps } from 'app/navigation/types';
 
 const BottomTab = createBottomTabNavigator();
 
-export function BottomTabNavigator() {
+export function BottomTabNavigator({
+  Component,
+  pageProps
+}: NextNavigationProps) {
+  const router = useRouter();
+
+  const component = useCallback(
+    (props) => {
+      return <Component {...pageProps} {...props} />;
+    },
+    [Component, pageProps]
+  );
+
   return (
     <BottomTab.Navigator
       initialRouteName="home"
@@ -29,21 +39,42 @@ export function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="home"
-        component={HomeNavigator}
+        component={component}
+        listeners={{
+          tabPress: (e) => {
+            router?.push({ pathname: `/home` }, `/home`, {
+              shallow: true
+            });
+          }
+        }}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />
         }}
       />
       <BottomTab.Screen
         name="playlists"
-        component={PlaylistsNavigator}
+        component={component}
+        listeners={{
+          tabPress: (e) => {
+            router?.push({ pathname: `/playlists` }, `/playlists`, {
+              shallow: true
+            });
+          }
+        }}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="disc" color={color} />
         }}
       />
       <BottomTab.Screen
         name="profile"
-        component={ProfileNavigator}
+        component={component}
+        listeners={{
+          tabPress: (e) => {
+            router?.push({ pathname: `/profile` }, `/profile`, {
+              shallow: true
+            });
+          }
+        }}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="smile" color={color} />
         }}
