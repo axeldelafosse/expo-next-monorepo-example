@@ -2365,6 +2365,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/hooks/-/hooks-2.6.0.tgz#dd5f19601eb3684c6bcdd3df3d0c04cf44c24cff"
   integrity sha512-emBGKvhJ0h++lLJQ5ejsj+od9G67nEaihjvfSx7/JWvNrQGAhP9U0OZqgb9dkKzor9Ufaj9SGt8RNY97cGzttw==
 
+"@react-native/normalize-color@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.0.0.tgz#da955909432474a9a0fe1cbffc66576a0447f567"
+  integrity sha512-Wip/xsc5lw8vsBlmY2MO/gFLp3MvuZ2baBZjDeTjjndMgM0h5sxz7AZR62RDPGgstp8Np7JzjvVqVT7tpFZqsw==
+
 "@react-navigation/bottom-tabs@^6.0.5":
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-6.0.5.tgz#ece601449054bf555d4f5b2cc00f7a20eb6f557a"
@@ -2390,6 +2395,11 @@
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.1.0.tgz#483155ccf5a8f18d015db283bed34cc2255e2e9e"
   integrity sha512-jZncciZPGuoP6B6f+Wpf6MYSSYy86B2HJDbFTCtT5xZV0w6V9GgCeqvSTOEAxifZrmKl8uDxsr0GrIxgQE8NxA==
 
+"@react-navigation/elements@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.1.2.tgz#82d8978489e47e7c54f67c453ba4a124046fe253"
+  integrity sha512-PbPCleC1HpUlXtuP0DFNCNTEhRLd6lmB0KxY0SGRGqCemS3HpG/PajEQ1LDe7S51M03a1tDby1MfKTkNanUXAg==
+
 "@react-navigation/native-stack@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.1.0.tgz#32e50d07bc8d9669d65f72dc4ffec2a6cc9ef379"
@@ -2398,7 +2408,7 @@
     "@react-navigation/elements" "^1.1.0"
     warn-once "^0.1.0"
 
-"@react-navigation/native@^5.0.0-alpha.29", "@react-navigation/native@^6.0.2":
+"@react-navigation/native@^6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.2.tgz#6bdb3cfafb6a9cfb603c1555dd61faafca35b7c2"
   integrity sha512-HDqEwgvQ4Cu16vz8jQ55lfyNK9CGbECI1wM9cPOcUa+gkOQEDZ/95VFfFjGGflXZs3ybPvGXlMC4ZAyh1CcO6w==
@@ -2414,10 +2424,14 @@
   dependencies:
     nanoid "^3.1.23"
 
-"@react-native/normalize-color@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.0.0.tgz#da955909432474a9a0fe1cbffc66576a0447f567"
-  integrity sha512-Wip/xsc5lw8vsBlmY2MO/gFLp3MvuZ2baBZjDeTjjndMgM0h5sxz7AZR62RDPGgstp8Np7JzjvVqVT7tpFZqsw==
+"@react-navigation/stack@^6.0.9":
+  version "6.0.9"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.0.9.tgz#a4c38df732d6dfefc39d8c80411aa066fcaeb358"
+  integrity sha512-LV9MlxqOH6+wgU7LxhaTRSY+WTuzNa2NnOCji9nyAA4Xohp9tpuLhYJRYdNRWXBcfseBqz1o4L0LAxRMv+CXYQ==
+  dependencies:
+    "@react-navigation/elements" "^1.1.2"
+    color "^3.1.3"
+    warn-once "^0.1.0"
 
 "@sentry/browser@6.7.1":
   version "6.7.1"
@@ -5494,20 +5508,19 @@ expo-modules-core@^0.2.0, expo-modules-core@~0.2.0:
   resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.2.0.tgz#68e5b6e53d0afbf8d131578831aed657589a2d42"
   integrity sha512-inpfZ5X/BaTtbj2wG9PA9AC0MN8VyId6KSRlVuEg7+ziurHBy/kKDFxpOddUokhwiln2uhoYPSStJjR/tKypdw==
 
-expo-navigation-core@^0.3.12:
-  version "0.3.12"
-  resolved "https://registry.yarnpkg.com/expo-navigation-core/-/expo-navigation-core-0.3.12.tgz#c8f6597b18cb8b9dbd0a615411f0b1ec80a41c74"
-  integrity sha512-Dt4fI8LELsBzxZVabL8jA0vRPdDIt0KWSntu/iSAlf1ywG5/Bem51QeQRBjNhM/6D/060JeNEVzGT6l1JZrCPA==
+expo-navigation-core@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/expo-navigation-core/-/expo-navigation-core-2.0.0.tgz#47cdc70388c526a97e85632c125c72676123b7dd"
+  integrity sha512-Vt3yn/pWZcKMMiQpjny3lNjSofzZG+MSgJlo7Er41IJYKD+SvsahP+fe8qU+jnpc60ug2lb0yo6Ptl3N6ainOA==
   dependencies:
-    "@react-navigation/native" "^5.0.0-alpha.29"
     lodash.get "^4.4.2"
 
-expo-next-react-navigation@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/expo-next-react-navigation/-/expo-next-react-navigation-1.2.1.tgz#9f9dde349b742aed9b0ab72332f45f6fbd7c33a6"
-  integrity sha512-IsEwVvP8O1Yjk6VDQlkQJl0k2YfDeFF3bjJAG9INwBKRhg6jTSc0Dmnthb7vm9lUoylivPlvpnDM/lM6eyDtPg==
+expo-next-react-navigation@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/expo-next-react-navigation/-/expo-next-react-navigation-2.0.2.tgz#90239d69540ff5a986f5c41287233d5cd1af2f07"
+  integrity sha512-ic/HogBNGPkeebSwzAslGnwzZr7eZP6a76nMNbaiUSKaR2zmuhFbpa5DjKOwXMPFLOm8RmI1FdjmU7/A2EG2gQ==
   dependencies:
-    expo-navigation-core "^0.3.12"
+    expo-navigation-core "^2.0.0"
     lodash.get "^4.4.2"
 
 expo-notifications@^0.12.3:

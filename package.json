@@ -16,8 +16,5 @@
     "build": "cd packages/next && yarn build",
     "deploy": "vercel --prod --no-clipboard",
     "postinstall": "patch-package"
-  },
-  "resolutions": {
-    "@react-navigation/native": "^6.0.2"
   }
 }

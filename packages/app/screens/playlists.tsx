@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable } from 'react-native';
+import { Pressable, Button } from 'react-native';
 import { Text } from 'dripsy';
 import { useRouter } from 'next/router';
 import { useNavigation } from '@react-navigation/native';
@@ -12,6 +12,17 @@ export default function PlaylistsScreen() {
 
   return (
     <>
+      <Button
+        onPress={() => {
+          navigation.navigate('/playlists?modal=new-playlist');
+          router?.push(
+            { pathname: '/playlists' },
+            `/playlists?modal=new-playlist`
+          );
+        }}
+        title="New playlist"
+      />
+
       {[1, 2, 3, 4, 5].map((_, index) => (
         <Pressable
           key={index}

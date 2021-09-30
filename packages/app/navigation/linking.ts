@@ -15,7 +15,8 @@ const linking = {
         initialRouteName: '/playlists',
         screens: {
           '/playlists': 'playlists',
-          '/playlist': 'playlist/:id'
+          '/playlist': 'playlist/:id',
+          '/playlists?modal=new-playlist': 'playlists?modal=new-playlist'
         }
       },
       profile: {
