@@ -6,17 +6,20 @@ const linking = {
     initialRouteName: 'home',
     screens: {
       home: {
+        initialRouteName: '/home',
         screens: {
           '/home': 'home'
         }
       },
       playlists: {
+        initialRouteName: '/playlists',
         screens: {
           '/playlists': 'playlists',
           '/playlist': 'playlist/:id'
         }
       },
       profile: {
+        initialRouteName: '/profile',
         screens: {
           '/profile': 'profile'
         }
