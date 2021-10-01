@@ -1,10 +1,19 @@
 import * as Linking from 'expo-linking';
 import type { NavigationContainer } from '@react-navigation/native';
+import { getPathFromState } from '@react-navigation/native';
 
 type Props = React.ComponentProps<typeof NavigationContainer>['linking'];
 
 const linking: Props = {
   prefixes: [Linking.makeUrl('/')],
+  getPathFromState(state, options) {
+    const path = getPathFromState(state, options);
+
+    if (path.includes('%3Fmodal%3D')) {
+      return decodeURIComponent(path);
+    }
+    return path;
+  },
   config: {
     screens: {
       home: {
