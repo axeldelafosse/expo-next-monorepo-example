@@ -6,10 +6,11 @@ import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import HomeNavigator from 'app/pages/home';
 import PlaylistsNavigator from 'app/pages/playlists';
 import ProfileNavigator from 'app/pages/profile';
+import { NextNavigationProps } from './types';
 
 const BottomTab = createBottomTabNavigator();
 
-export function BottomTabNavigator() {
+export function BottomTabNavigator(props: NextNavigationProps) {
   return (
     <BottomTab.Navigator
       initialRouteName="home"

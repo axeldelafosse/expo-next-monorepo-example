@@ -9,7 +9,6 @@ import type { NextNavigationProps } from 'app/navigation/types';
 export function Navigation({ Component, pageProps }: NextNavigationProps) {
   return (
     <NavigationContainer
-      // @ts-ignore
       linking={linking}
       theme={{
         dark: true,

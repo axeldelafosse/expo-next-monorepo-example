@@ -1,9 +1,11 @@
 import * as Linking from 'expo-linking';
+import type { NavigationContainer } from '@react-navigation/native';
 
-const linking = {
+type Props = React.ComponentProps<typeof NavigationContainer>['linking'];
+
+const linking: Props = {
   prefixes: [Linking.makeUrl('/')],
   config: {
-    initialRouteName: 'home',
     screens: {
       home: {
         initialRouteName: '/home',
