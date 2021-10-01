@@ -2,8 +2,9 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ProfileScreen from 'app/screens/profile';
+import { ProfileStackParams } from '../navigation/types';
 
-const ProfileStack = createNativeStackNavigator();
+const ProfileStack = createNativeStackNavigator<ProfileStackParams>();
 
 function ProfileNavigator() {
   return (
@@ -15,7 +16,7 @@ function ProfileNavigator() {
       }}
     >
       <ProfileStack.Screen
-        name="/profile"
+        name="profile"
         component={ProfileScreen}
         options={{ title: 'Profile', headerTitle: 'Profile' }}
       />

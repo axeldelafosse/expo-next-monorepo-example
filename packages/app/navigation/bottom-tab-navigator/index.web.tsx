@@ -1,11 +1,9 @@
 import React, { useCallback } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useRouter } from 'next/router';
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import type { NextNavigationProps } from 'app/navigation/types';
-
-const BottomTab = createBottomTabNavigator();
+import { BottomTab } from './types';
 
 export function BottomTabNavigator({
   Component,
@@ -22,7 +20,7 @@ export function BottomTabNavigator({
 
   return (
     <BottomTab.Navigator
-      initialRouteName="home"
+      initialRouteName="homeTab"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#fff',
@@ -38,10 +36,11 @@ export function BottomTabNavigator({
       }}
     >
       <BottomTab.Screen
-        name="home"
+        name="homeTab"
         component={component}
         listeners={{
           tabPress: (e) => {
+            // TODO why is nice necessary?
             router?.push({ pathname: `/home` }, `/home`, {
               shallow: true
             });
@@ -52,7 +51,7 @@ export function BottomTabNavigator({
         }}
       />
       <BottomTab.Screen
-        name="playlists"
+        name="playlistsTab"
         component={component}
         listeners={{
           tabPress: (e) => {
@@ -66,7 +65,7 @@ export function BottomTabNavigator({
         }}
       />
       <BottomTab.Screen
-        name="profile"
+        name="profileTab"
         component={component}
         listeners={{
           tabPress: (e) => {

@@ -6,14 +6,13 @@ import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import HomeNavigator from 'app/pages/home';
 import PlaylistsNavigator from 'app/pages/playlists';
 import ProfileNavigator from 'app/pages/profile';
-import { NextNavigationProps } from './types';
-
-const BottomTab = createBottomTabNavigator();
+import { NextNavigationProps } from '../types';
+import { BottomTab, BottomTabNavigatorParams } from './types';
 
 export function BottomTabNavigator(props: NextNavigationProps) {
   return (
     <BottomTab.Navigator
-      initialRouteName="home"
+      initialRouteName="homeTab"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#fff',
@@ -29,21 +28,21 @@ export function BottomTabNavigator(props: NextNavigationProps) {
       }}
     >
       <BottomTab.Screen
-        name="home"
+        name="homeTab"
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />
         }}
       />
       <BottomTab.Screen
-        name="playlists"
+        name="playlistsTab"
         component={PlaylistsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="disc" color={color} />
         }}
       />
       <BottomTab.Screen
-        name="profile"
+        name="profileTab"
         component={ProfileNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="smile" color={color} />
