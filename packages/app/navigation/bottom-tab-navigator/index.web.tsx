@@ -4,19 +4,20 @@ import { useRouter } from 'next/router';
 import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import type { NextNavigationProps } from 'app/navigation/types';
 import { BottomTab } from './types';
+import { useLink } from '../use-link';
 
 export function BottomTabNavigator({
   Component,
   pageProps
 }: NextNavigationProps) {
-  const router = useRouter();
-
   const component = useCallback(
     (props) => {
       return <Component {...pageProps} {...props} />;
     },
     [Component, pageProps]
   );
+
+  const { link } = useLink();
 
   return (
     <BottomTab.Navigator
@@ -39,13 +40,8 @@ export function BottomTabNavigator({
         name="homeTab"
         listeners={{
           tabPress: (e) => {
-            // router.push is necessary to load the code for that page and render the correct component with next/router
-            const pathname = '/';
-            if (router && router.pathname != pathname) {
-              router?.push({ pathname }, pathname, {
-                shallow: true
-              });
-            }
+            e.preventDefault();
+            link('/');
           }
         }}
         options={{
@@ -58,9 +54,8 @@ export function BottomTabNavigator({
         name="playlistsTab"
         listeners={{
           tabPress: (e) => {
-            router?.push({ pathname: `/playlists` }, `/playlists`, {
-              shallow: true
-            });
+            e.preventDefault();
+            link('/playlists');
           }
         }}
         options={{
@@ -73,9 +68,8 @@ export function BottomTabNavigator({
         name="profileTab"
         listeners={{
           tabPress: (e) => {
-            router?.push({ pathname: `/profile` }, `/profile`, {
-              shallow: true
-            });
+            e.preventDefault();
+            link('/profile');
           }
         }}
         options={{
