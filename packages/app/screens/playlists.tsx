@@ -16,6 +16,11 @@ export default function PlaylistsScreen() {
       <Button
         onPress={() => {
           // no more double navigate 😎
+          // this is fine only for modals on a given page
+          // however, it won't work for navigating to an entirely different page
+          // since this edits the URL and react-navigation state, but not next/router's state
+          // as a result, it doesn't route to a new "page"
+          // need to think about the best way to abstract this
           linkTo('/playlists/new');
           // router?.push({ pathname: '/playlists' }, `/playlists/new`);
         }}

@@ -63,9 +63,10 @@ const linking: Props = {
   config: {
     screens: {
       [tabPaths.home]: {
+        path: '',
         initialRouteName: homeStackPaths.home,
         screens: {
-          [homeStackPaths.home]: 'home'
+          [homeStackPaths.home]: ''
         }
       },
       [tabPaths.playlists]: {
@@ -78,9 +79,10 @@ const linking: Props = {
         }
       },
       [tabPaths.profile]: {
+        path: 'profile',
         initialRouteName: profileStackPaths.profile,
         screens: {
-          [profileStackPaths.profile]: 'profile'
+          [profileStackPaths.profile]: ''
         }
       }
     }

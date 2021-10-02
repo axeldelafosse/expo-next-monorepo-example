@@ -7,7 +7,7 @@ import HomeNavigator from 'app/pages/home';
 import PlaylistsNavigator from 'app/pages/playlists';
 import ProfileNavigator from 'app/pages/profile';
 import { NextNavigationProps } from '../types';
-import { BottomTab, BottomTabNavigatorParams } from './types';
+import { BottomTab } from './types';
 
 export function BottomTabNavigator(props: NextNavigationProps) {
   return (
