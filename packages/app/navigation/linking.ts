@@ -1,28 +1,88 @@
 import * as Linking from 'expo-linking';
+import type { NavigationContainer } from '@react-navigation/native';
+import { getPathFromState } from '@react-navigation/native';
+import type { BottomTabNavigatorParams } from './bottom-tab-navigator/types';
+import {
+  HomeStackParams,
+  PlayListStackParams,
+  ProfileStackParams
+} from './types';
 
-const linking = {
+type Props = React.ComponentProps<typeof NavigationContainer>['linking'];
+
+function makeTabPath<Path extends keyof BottomTabNavigatorParams>(
+  path: Path
+): Path {
+  return path;
+}
+
+function makePlaylistStackPath<Path extends keyof PlayListStackParams>(
+  path: Path
+): Path {
+  return path;
+}
+
+function makeProfileStackPath<Path extends keyof ProfileStackParams>(
+  path: Path
+): Path {
+  return path;
+}
+
+function makeHomeStackPath<Path extends keyof HomeStackParams>(
+  path: Path
+): Path {
+  return path;
+}
+
+function makeType<T>(t: T) {
+  return t;
+}
+
+const playlistStackPaths = makeType({
+  playlists: makePlaylistStackPath('playlists'),
+  playlist: makePlaylistStackPath('playlist'),
+  new: makePlaylistStackPath('new')
+});
+
+const profileStackPaths = makeType({
+  profile: makeProfileStackPath('profile')
+});
+
+const homeStackPaths = makeType({
+  home: makeHomeStackPath('home')
+});
+
+const tabPaths = makeType({
+  home: makeTabPath('homeTab'),
+  playlists: makeTabPath('playlistsTab'),
+  profile: makeTabPath('profileTab')
+});
+
+const linking: Props = {
   prefixes: [Linking.makeUrl('/')],
   config: {
-    initialRouteName: 'home',
     screens: {
-      home: {
-        initialRouteName: '/home',
+      [tabPaths.home]: {
+        path: '',
+        initialRouteName: homeStackPaths.home,
         screens: {
-          '/home': 'home'
+          [homeStackPaths.home]: ''
         }
       },
-      playlists: {
-        initialRouteName: '/playlists',
+      [tabPaths.playlists]: {
+        initialRouteName: playlistStackPaths.playlists,
+        path: 'playlists',
         screens: {
-          '/playlists': 'playlists',
-          '/playlist': 'playlist/:id',
-          '/playlists?modal=new-playlist': 'playlists?modal=new-playlist'
+          [playlistStackPaths.playlists]: '',
+          [playlistStackPaths.playlist]: ':id',
+          [playlistStackPaths.new]: 'new'
         }
       },
-      profile: {
-        initialRouteName: '/profile',
+      [tabPaths.profile]: {
+        path: 'profile',
+        initialRouteName: profileStackPaths.profile,
         screens: {
-          '/profile': 'profile'
+          [profileStackPaths.profile]: ''
         }
       }
     }

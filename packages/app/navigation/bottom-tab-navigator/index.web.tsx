@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useRouter } from 'next/router';
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import type { NextNavigationProps } from 'app/navigation/types';
-
-const BottomTab = createBottomTabNavigator();
+import { BottomTab } from './types';
+import { useLinkTo } from '@react-navigation/native';
 
 export function BottomTabNavigator({
   Component,
@@ -20,9 +19,11 @@ export function BottomTabNavigator({
     [Component, pageProps]
   );
 
+  const linkTo = useLinkTo();
+
   return (
     <BottomTab.Navigator
-      initialRouteName="home"
+      initialRouteName="playlistsTab"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#fff',
@@ -38,22 +39,26 @@ export function BottomTabNavigator({
       }}
     >
       <BottomTab.Screen
-        name="home"
-        component={component}
+        name="homeTab"
         listeners={{
           tabPress: (e) => {
-            router?.push({ pathname: `/home` }, `/home`, {
-              shallow: true
-            });
+            // router.push is necessary to load the code for that page and render the correct component with next/router
+            const pathname = '/';
+            if (router && router.pathname != pathname) {
+              router?.push({ pathname }, pathname, {
+                shallow: true
+              });
+            }
           }
         }}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />
         }}
-      />
+      >
+        {component}
+      </BottomTab.Screen>
       <BottomTab.Screen
-        name="playlists"
-        component={component}
+        name="playlistsTab"
         listeners={{
           tabPress: (e) => {
             router?.push({ pathname: `/playlists` }, `/playlists`, {
@@ -64,10 +69,11 @@ export function BottomTabNavigator({
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="disc" color={color} />
         }}
-      />
+      >
+        {component}
+      </BottomTab.Screen>
       <BottomTab.Screen
-        name="profile"
-        component={component}
+        name="profileTab"
         listeners={{
           tabPress: (e) => {
             router?.push({ pathname: `/profile` }, `/profile`, {
@@ -78,7 +84,9 @@ export function BottomTabNavigator({
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="smile" color={color} />
         }}
-      />
+      >
+        {component}
+      </BottomTab.Screen>
     </BottomTab.Navigator>
   );
 }

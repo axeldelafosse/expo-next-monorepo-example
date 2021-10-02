@@ -24,12 +24,12 @@ function PlaylistsNavigator() {
     >
       <PlaylistsStack.Group>
         <PlaylistsStack.Screen
-          name="/playlists"
+          name="playlists"
           component={PlaylistsScreen}
           options={{ title: 'Playlists', headerTitle: 'Playlists' }}
         />
         <PlaylistsStack.Screen
-          name="/playlist"
+          name="playlist"
           component={PlaylistScreen}
           options={{ title: 'Playlist', headerTitle: 'Playlist' }}
         />
@@ -40,10 +40,7 @@ function PlaylistsNavigator() {
           presentation: Platform.OS === 'ios' ? 'formSheet' : 'transparentModal'
         }}
       >
-        <PlaylistsStack.Screen
-          name="/playlists?modal=new-playlist"
-          component={NewPlaylistScreen}
-        />
+        <PlaylistsStack.Screen name="new" component={NewPlaylistScreen} />
       </PlaylistsStack.Group>
     </PlaylistsStack.Navigator>
   );

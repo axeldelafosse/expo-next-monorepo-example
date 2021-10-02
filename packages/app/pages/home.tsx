@@ -2,8 +2,9 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from 'app/screens/home';
+import { HomeStackParams } from '../navigation/types';
 
-const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator<HomeStackParams>();
 
 function HomeNavigator() {
   return (
@@ -15,7 +16,7 @@ function HomeNavigator() {
       }}
     >
       <HomeStack.Screen
-        name="/home"
+        name="home"
         component={HomeScreen}
         options={{ title: 'Home', headerTitle: 'Hello World' }}
       />
