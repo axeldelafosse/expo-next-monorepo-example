@@ -1,6 +1,5 @@
 import * as Linking from 'expo-linking';
 import type { NavigationContainer } from '@react-navigation/native';
-import { getPathFromState } from '@react-navigation/native';
 import type { BottomTabNavigatorParams } from './bottom-tab-navigator/types';
 import {
   HomeStackParams,

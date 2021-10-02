@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import type { NextNavigationProps } from 'app/navigation/types';
 import { BottomTab } from './types';
-import { useLinkTo } from '@react-navigation/native';
 
 export function BottomTabNavigator({
   Component,
@@ -18,8 +17,6 @@ export function BottomTabNavigator({
     },
     [Component, pageProps]
   );
-
-  const linkTo = useLinkTo();
 
   return (
     <BottomTab.Navigator
