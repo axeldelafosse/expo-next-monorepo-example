@@ -1,10 +1,10 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import createStackNavigator from 'app/navigation/create-stack-navigator';
 import ProfileScreen from 'app/screens/profile';
-import { ProfileStackParams } from '../navigation/types';
+import { ProfileStackParams } from 'app/navigation/types';
 
-const ProfileStack = createNativeStackNavigator<ProfileStackParams>();
+const ProfileStack = createStackNavigator<ProfileStackParams>();
 
 function ProfileNavigator() {
   return (
@@ -12,7 +12,12 @@ function ProfileNavigator() {
       screenOptions={{
         headerShown: true,
         headerShadowVisible: false,
-        headerBackTitleVisible: false
+        headerBackTitleVisible: false,
+        headerStyle: {
+          // Similar to `headerShadowVisible` but for web
+          // @ts-ignore
+          borderBottomWidth: 0
+        }
       }}
     >
       <ProfileStack.Screen

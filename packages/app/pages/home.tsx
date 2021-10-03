@@ -1,10 +1,10 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import createStackNavigator from 'app/navigation/create-stack-navigator';
 import HomeScreen from 'app/screens/home';
-import { HomeStackParams } from '../navigation/types';
+import { HomeStackParams } from 'app/navigation/types';
 
-const HomeStack = createNativeStackNavigator<HomeStackParams>();
+const HomeStack = createStackNavigator<HomeStackParams>();
 
 function HomeNavigator() {
   return (
@@ -12,7 +12,12 @@ function HomeNavigator() {
       screenOptions={{
         headerShown: true,
         headerShadowVisible: false,
-        headerBackTitleVisible: false
+        headerBackTitleVisible: false,
+        headerStyle: {
+          // Similar to `headerShadowVisible` but for web
+          // @ts-ignore
+          borderBottomWidth: 0
+        }
       }}
     >
       <HomeStack.Screen

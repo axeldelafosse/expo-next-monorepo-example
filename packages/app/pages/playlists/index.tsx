@@ -5,8 +5,9 @@ import createStackNavigator from 'app/navigation/create-stack-navigator';
 import PlaylistsScreen from 'app/screens/playlists';
 import PlaylistScreen from 'app/screens/playlist';
 import NewPlaylistScreen from 'app/screens/new-playlist';
+import { PlaylistsStackParams } from 'app/navigation/types';
 
-const PlaylistsStack = createStackNavigator();
+const PlaylistsStack = createStackNavigator<PlaylistsStackParams>();
 
 function PlaylistsNavigator() {
   return (
