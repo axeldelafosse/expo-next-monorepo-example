@@ -3,7 +3,7 @@ import type { NavigationContainer } from '@react-navigation/native';
 import type { BottomTabNavigatorParams } from './bottom-tab-navigator/types';
 import {
   HomeStackParams,
-  PlayListStackParams,
+  PlaylistsStackParams,
   ProfileStackParams
 } from './types';
 
@@ -15,7 +15,7 @@ function makeTabPath<Path extends keyof BottomTabNavigatorParams>(
   return path;
 }
 
-function makePlaylistStackPath<Path extends keyof PlayListStackParams>(
+function makePlaylistStackPath<Path extends keyof PlaylistsStackParams>(
   path: Path
 ): Path {
   return path;
