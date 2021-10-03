@@ -1,16 +1,17 @@
 import React from 'react';
 import { Pressable, Button } from 'react-native';
 import { Text } from 'dripsy';
-import { useLink } from '../navigation/use-link';
+
+import { useRouter } from 'app/navigation/use-router';
 
 export default function PlaylistsScreen() {
-  const { link } = useLink();
+  const router = useRouter();
 
   return (
     <>
       <Button
         onPress={() => {
-          link('/playlists/new');
+          router.push('/playlists/new');
         }}
         title="New playlist"
       />
@@ -19,7 +20,7 @@ export default function PlaylistsScreen() {
         <Pressable
           key={index}
           onPress={() => {
-            link(`/playlists/${index + 1}`);
+            router.push(`/playlists/${index + 1}`);
           }}
         >
           <Text sx={{ color: 'white' }}>{`Playlist ${index + 1}`}</Text>

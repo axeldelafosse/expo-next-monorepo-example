@@ -1,23 +1,22 @@
 import React, { useCallback } from 'react';
-import { useRouter } from 'next/router';
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon';
 import type { NextNavigationProps } from 'app/navigation/types';
 import { BottomTab } from './types';
-import { useLink } from '../use-link';
+import { useRouter } from 'app/navigation/use-router';
 
 export function BottomTabNavigator({
   Component,
   pageProps
 }: NextNavigationProps) {
+  const router = useRouter();
+
   const component = useCallback(
     (props) => {
       return <Component {...pageProps} {...props} />;
     },
     [Component, pageProps]
   );
-
-  const { link } = useLink();
 
   return (
     <BottomTab.Navigator
@@ -41,7 +40,7 @@ export function BottomTabNavigator({
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            link('/');
+            router.push('/');
           }
         }}
         options={{
@@ -55,7 +54,7 @@ export function BottomTabNavigator({
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            link('/playlists');
+            router.push('/playlists');
           }
         }}
         options={{
@@ -69,7 +68,7 @@ export function BottomTabNavigator({
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            link('/profile');
+            router.push('/profile');
           }
         }}
         options={{

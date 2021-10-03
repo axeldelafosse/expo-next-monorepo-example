@@ -1,14 +1,11 @@
 import React from 'react';
 import { Platform, Button, useWindowDimensions } from 'react-native';
 import { View, Text, TextInput } from 'dripsy';
-import { useNavigation } from '@react-navigation/native';
-import { useRouter } from 'next/router';
 
-import type { PlaylistsScreenProps } from 'app/navigation/types';
+import { useRouter } from 'app/navigation/use-router';
 
 export default function NewPlaylistScreen() {
   const { width } = useWindowDimensions();
-  const navigation = useNavigation<PlaylistsScreenProps['navigation']>();
   const router = useRouter();
 
   return (
@@ -87,16 +84,14 @@ export default function NewPlaylistScreen() {
           <View sx={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
             <Button
               onPress={() => {
-                navigation.goBack();
-                router?.replace('/playlists', '/playlists', { shallow: true });
+                router.back();
               }}
               title="Cancel"
             />
             <View sx={{ width: 8 }} />
             <Button
               onPress={() => {
-                navigation.goBack();
-                router?.replace('/playlists', '/playlists', { shallow: true });
+                router.back();
               }}
               title="Create"
             />
@@ -104,7 +99,7 @@ export default function NewPlaylistScreen() {
         ) : (
           <Button
             onPress={() => {
-              navigation.goBack();
+              router.back();
             }}
             title="Create"
           />
