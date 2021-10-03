@@ -13,6 +13,7 @@ function PlaylistsNavigator() {
   return (
     <PlaylistsStack.Navigator
       screenOptions={{
+        animationEnabled: true,
         headerShown: true,
         headerShadowVisible: false,
         headerBackTitleVisible: false,

@@ -10,6 +10,7 @@ function ProfileNavigator() {
   return (
     <ProfileStack.Navigator
       screenOptions={{
+        animationEnabled: true,
         headerShown: true,
         headerShadowVisible: false,
         headerBackTitleVisible: false,

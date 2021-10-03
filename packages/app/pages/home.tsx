@@ -10,6 +10,7 @@ function HomeNavigator() {
   return (
     <HomeStack.Navigator
       screenOptions={{
+        animationEnabled: true,
         headerShown: true,
         headerShadowVisible: false,
         headerBackTitleVisible: false,
