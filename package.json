@@ -1,6 +1,7 @@
 {
   "name": "expo-next-monorepo-example",
   "private": true,
+  "license": "MIT",
   "devDependencies": {
     "expo-yarn-workspaces": "^1.5.1",
     "patch-package": "^6.4.7"
