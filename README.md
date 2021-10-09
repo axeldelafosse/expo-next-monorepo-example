@@ -94,3 +94,7 @@ Here are some ideas to get you started:
 
 - https://github.com/expo/examples/tree/master/with-yarn-workspaces
 - https://github.com/byCedric/eas-monorepo-example
+
+## License
+
+[MIT](https://github.com/axeldelafosse/expo-next-monorepo-example/blob/main/LICENSE.md)
