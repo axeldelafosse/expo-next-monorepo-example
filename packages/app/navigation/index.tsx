@@ -1,5 +1,9 @@
-import React, { useReducer, useMemo, useEffect } from 'react';
-import { NavigationContainer, useLinkTo } from '@react-navigation/native';
+import React, { useRef, useMemo, useEffect } from 'react';
+import {
+  NavigationContainer,
+  useLinkTo,
+  LinkingOptions
+} from '@react-navigation/native';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 import { linking } from 'app/navigation/linking';
@@ -27,20 +31,26 @@ function LinkTo() {
   return null;
 }
 
-function useLinkingConfig() {
-  const [enabled, disableWebLinkingAfterInitialState] = useReducer(
-    () => false,
-    true
-  );
-
+function useLinkingConfig(
+  trackedLinking: React.MutableRefObject<LinkingOptions<{}>>
+) {
   return {
-    linking: useMemo(() => ({ ...linking, enabled }), []),
-    onReady: Platform.select({ web: disableWebLinkingAfterInitialState })
+    linking: trackedLinking.current,
+    onReady: useMemo(
+      () =>
+        Platform.select({
+          web: () => {
+            trackedLinking.current.enabled = false;
+          }
+        }),
+      []
+    )
   };
 }
 
 export function Navigation({ Component, pageProps }: NextNavigationProps) {
-  const linkingConfig = useLinkingConfig();
+  const trackedLinking = useRef(linking);
+  const linkingConfig = useLinkingConfig(trackedLinking);
 
   return (
     <NavigationContainer
