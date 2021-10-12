@@ -48,7 +48,7 @@ export function useRouter() {
           navigation.goBack();
         }
       },
-      [linkTo, router]
+      [linkTo, router, navigation]
     )
   };
 }
