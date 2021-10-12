@@ -15,7 +15,7 @@ function makeTabPath<Path extends keyof BottomTabNavigatorParams>(
   return path;
 }
 
-function makePlaylistStackPath<Path extends keyof PlaylistsStackParams>(
+function makePlaylistsStackPath<Path extends keyof PlaylistsStackParams>(
   path: Path
 ): Path {
   return path;
@@ -37,10 +37,10 @@ function makeType<T>(t: T) {
   return t;
 }
 
-const playlistStackPaths = makeType({
-  playlists: makePlaylistStackPath('playlists'),
-  playlist: makePlaylistStackPath('playlist'),
-  new: makePlaylistStackPath('new')
+const playlistsStackPaths = makeType({
+  playlists: makePlaylistsStackPath('playlists'),
+  playlist: makePlaylistsStackPath('playlist'),
+  new: makePlaylistsStackPath('new')
 });
 
 const profileStackPaths = makeType({
@@ -69,12 +69,12 @@ const linking: Props = {
         }
       },
       [tabPaths.playlists]: {
-        initialRouteName: playlistStackPaths.playlists,
+        initialRouteName: playlistsStackPaths.playlists,
         path: 'playlists',
         screens: {
-          [playlistStackPaths.playlists]: '',
-          [playlistStackPaths.playlist]: ':id',
-          [playlistStackPaths.new]: 'new'
+          [playlistsStackPaths.playlists]: '',
+          [playlistsStackPaths.playlist]: ':id',
+          [playlistsStackPaths.new]: 'new'
         }
       },
       [tabPaths.profile]: {
