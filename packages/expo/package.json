@@ -13,7 +13,7 @@
     "ios": "react-native run-ios",
     "eject": "expo eject",
     "expo:prebuild": "expo prebuild --skip-dependency-update react",
-    "run:ios": "yarn expo:prebuild && expo run:ios",
+    "run:ios": "EXPO_USE_APPLE_DEVICE=1 yarn expo:prebuild && expo run:ios",
     "run:android": "yarn expo:prebuild && expo run:android",
     "postinstall": "cd ../.. && yarn patch-package",
     "publish:development": "STAGE=development expo publish",
@@ -30,8 +30,8 @@
     "build:production:android": "STAGE=production eas build --profile production --platform android"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^4.0.0-alpha.30",
-    "@sentry/react-native": "^2.6.2",
+    "@gorhom/bottom-sheet": "^4.1.3",
+    "@sentry/react-native": "^3.1.1",
     "app": "*",
     "dripsy": "^2.3.6",
     "expo": "^43.0.0",
@@ -48,16 +48,15 @@
     "expo-splash-screen": "~0.13.3",
     "expo-status-bar": "~1.1.0",
     "expo-updates": "~0.10.5",
-    "hermes-engine": "0.5.2-rc1",
-    "react": "17.0.1",
-    "react-dom": "^17.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-native": "0.64.2",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-web": "0.17.1",
-    "sentry-expo": "^4.0.0"
+    "sentry-expo": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",

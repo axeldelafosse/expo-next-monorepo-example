@@ -1,24 +1,25 @@
 const STAGE = process.env.STAGE;
+const SCHEME = process.env.SCHEME ?? 'com.example';
 
 const envConfig = {
   development: {
-    scheme: 'com.example.development',
+    scheme: `${SCHEME}.development`,
     icon: './assets/icon.development.png',
     backgroundColor: '#FF0000'
   },
   staging: {
-    scheme: 'com.example.staging',
+    scheme: `${SCHEME}.staging`,
     icon: './assets/icon.staging.png',
     backgroundColor: '#8000FF'
   },
   production: {
-    scheme: 'com.example',
+    scheme: SCHEME,
     icon: './assets/icon.png',
     backgroundColor: '#1610FF'
   }
 };
 
-const config = envConfig[STAGE || 'development'];
+const config = envConfig[STAGE ?? 'development'];
 
 export default {
   name: 'Example',
@@ -35,7 +36,8 @@ export default {
   },
   ios: {
     bundleIdentifier: config.scheme,
-    supportsTablet: true
+    supportsTablet: true,
+    jsEngine: 'hermes'
   },
   android: {
     package: config.scheme,
