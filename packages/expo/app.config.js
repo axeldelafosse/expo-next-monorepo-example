@@ -27,7 +27,6 @@ export default {
   scheme: 'example',
   owner: 'poolpoolpool',
   icon: config.icon,
-  sdkVersion: '42.0.0',
   version: '0.0.1',
   splash: {
     image: './assets/splash.png',
