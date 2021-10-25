@@ -2,6 +2,7 @@
   "main": "index.js",
   "name": "@expo-next-monorepo-example/expo",
   "scripts": {
+    "dev": "yarn start:dev-client",
     "start": "react-native start",
     "start:expo": "expo start",
     "start:clear": "yarn start:expo -c",

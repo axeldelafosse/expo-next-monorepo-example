@@ -11,8 +11,8 @@
     "packages/next"
   ],
   "scripts": {
-    "start": "cd packages/expo && yarn start:expo",
-    "dev": "cd packages/next && yarn dev",
+    "dev:expo": "yarn workspace @expo-next-monorepo-example/expo dev",
+    "dev:next": "yarn workspace @expo-next-monorepo-example/next dev",
     "build": "cd packages/next && yarn build",
     "deploy": "vercel --prod --no-clipboard",
     "postinstall": "patch-package"
