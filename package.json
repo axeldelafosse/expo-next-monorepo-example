@@ -16,5 +16,8 @@
     "build": "cd packages/next && yarn build",
     "deploy": "vercel --prod --no-clipboard",
     "postinstall": "patch-package"
+  },
+  "resolutions": {
+    "babel-preset-expo": "^8.5.1"
   }
 }

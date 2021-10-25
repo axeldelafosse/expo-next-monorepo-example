@@ -3,7 +3,7 @@ module.exports = function (api) {
 
   return {
     babelrcRoots: ['.', './packages/*'],
-    presets: ['@expo/next-adapter/babel'],
+    presets: [['babel-preset-expo', { jsxRuntime: 'automatic' }]],
     plugins: ['react-native-reanimated/plugin'],
     overrides: [
       {
