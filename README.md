@@ -4,9 +4,9 @@ Here is an example showing how to create a universal React app using Expo and Ne
 
 You'll find included:
 
-- Expo SDK 42 (with Hermes on Android)
+- Expo SDK 43 (with Hermes on iOS and Android)
 - Next.js 11.1 (with Webpack 5)
-- React Native Web
+- React Native for Web
 - TypeScript
 - Babel config that works for Expo and Next.js with Reanimated in a monorepo
 - Reanimated
@@ -70,7 +70,7 @@ Demo: https://expo-next-monorepo-example.vercel.app
 
 - Add your web-only packages here
 - Deploy to Vercel with `yarn deploy` -- if it fails, make sure to configure your project correctly:
-  go to your project settings on Vercel and set the "Framework Preset" to Next.js and the "Root Directory" to `packages/next`.
+  go to your project settings on Vercel and set the "Framework Preset" to Next.js and the "Root Directory" to `packages/next`
 
 ## Navigation
 
@@ -90,10 +90,9 @@ Here are some ideas to get you started:
 - Add CI/CD with EAS via GitHub Actions
 - ...
 
-## Related monorepo examples
+## Related monorepo example
 
-- https://github.com/expo/examples/tree/master/with-yarn-workspaces
-- https://github.com/byCedric/eas-monorepo-example
+I also recommend to check out this example from Cedric: https://github.com/byCedric/eas-monorepo-example. It includes some EAS GitHub Actions and a bare workflow (ejected) example.
 
 ## License
 
