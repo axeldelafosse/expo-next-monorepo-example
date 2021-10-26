@@ -9,12 +9,6 @@ module.exports = function (api) {
       ['@babel/plugin-proposal-private-methods', { loose: true }],
       ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
       'react-native-reanimated/plugin'
-    ],
-    overrides: [
-      {
-        test: './node_modules/react-native-reanimated/*',
-        plugins: ['@babel/plugin-proposal-class-properties']
-      }
     ]
   };
 };
