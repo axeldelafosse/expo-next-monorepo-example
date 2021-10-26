@@ -39,6 +39,8 @@ Expo entrypoint: `packages/expo/App.tsx`
 
 Demo: https://expo.dev/@poolpoolpool/example?release-channel=production
 
+Pro tip: build and launch a custom development client with `SCHEME=com.example.axel yarn run:ios -d` (replace `axel` with your first name)
+
 ### Next.js
 
 > Web
