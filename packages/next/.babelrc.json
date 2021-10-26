@@ -1,12 +1,7 @@
 {
   "presets": [
     "next/babel",
-    [
-      "babel-preset-expo",
-      {
-        "web": { "useTransformReactJSXExperimental": true }
-      }
-    ]
+    ["babel-preset-expo", { "jsxRuntime": "automatic" }]
   ],
   "plugins": [
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
