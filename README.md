@@ -5,7 +5,7 @@ Here is an example showing how to create a universal React app using Expo and Ne
 You'll find included:
 
 - Expo SDK 43 (with Hermes on iOS and Android)
-- Next.js 11.1 (with Webpack 5)
+- Next.js 12
 - React Native for Web
 - TypeScript
 - Babel config that works for Expo and Next.js with Reanimated in a monorepo
