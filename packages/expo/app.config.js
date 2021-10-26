@@ -57,16 +57,16 @@ export default {
   updates: {
     fallbackToCacheTimeout: 0
   },
-  hooks: {
-    postPublish: [
-      {
-        file: 'sentry-expo/upload-sourcemaps',
-        config: {}
-      }
-    ]
-  },
+  // hooks: {
+  //   postPublish: [
+  //     {
+  //       file: 'sentry-expo/upload-sourcemaps',
+  //       config: {}
+  //     }
+  //   ]
+  // },
   extra: {
     STAGE: process.env.STAGE
-  },
-  plugins: ['sentry-expo']
+  }
+  // plugins: ['sentry-expo']
 };
