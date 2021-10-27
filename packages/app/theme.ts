@@ -1,4 +1,4 @@
-// https://github.com/nandorojo/dripsy#custom-theme
+// https://www.dripsy.xyz/usage/theming/create
 import { makeTheme } from 'dripsy'
 
 const theme = makeTheme({})
