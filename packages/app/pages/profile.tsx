@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import createStackNavigator from 'app/navigation/create-stack-navigator';
-import ProfileScreen from 'app/screens/profile';
-import { ProfileStackParams } from 'app/navigation/types';
-import { navigatorScreenOptions } from 'app/navigation/navigator-screen-options';
+import createStackNavigator from 'app/navigation/create-stack-navigator'
+import ProfileScreen from 'app/screens/profile'
+import { ProfileStackParams } from 'app/navigation/types'
+import { navigatorScreenOptions } from 'app/navigation/navigator-screen-options'
 
-const ProfileStack = createStackNavigator<ProfileStackParams>();
+const ProfileStack = createStackNavigator<ProfileStackParams>()
 
 function ProfileNavigator() {
   return (
@@ -16,7 +16,7 @@ function ProfileNavigator() {
         options={{ title: 'Profile', headerTitle: 'Profile' }}
       />
     </ProfileStack.Navigator>
-  );
+  )
 }
 
-export default ProfileNavigator;
+export default ProfileNavigator

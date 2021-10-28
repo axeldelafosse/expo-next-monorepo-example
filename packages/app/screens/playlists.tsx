@@ -1,11 +1,11 @@
-import React from 'react';
-import { Pressable, Button } from 'react-native';
-import { Text } from 'dripsy';
+import React from 'react'
+import { Pressable, Button } from 'react-native'
+import { Text } from 'dripsy'
 
-import { useRouter } from 'app/navigation/use-router';
+import { useRouter } from 'app/navigation/use-router'
 
 export default function PlaylistsScreen() {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function PlaylistsScreen() {
         onPress={() => {
           router.push(`/playlists/new`, `/playlists/new`, {
             shallow: true
-          });
+          })
         }}
         title="New playlist"
       />
@@ -24,12 +24,12 @@ export default function PlaylistsScreen() {
           onPress={() => {
             router.push(`/playlists/[id]`, `/playlists/${index + 1}`, {
               shallow: true
-            });
+            })
           }}
         >
           <Text sx={{ color: 'white' }}>{`Playlist ${index + 1}`}</Text>
         </Pressable>
       ))}
     </>
-  );
+  )
 }

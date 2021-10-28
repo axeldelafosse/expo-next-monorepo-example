@@ -1,14 +1,14 @@
-import React from 'react';
-import { Platform } from 'react-native';
+import React from 'react'
+import { Platform } from 'react-native'
 
-import createStackNavigator from 'app/navigation/create-stack-navigator';
-import PlaylistsScreen from 'app/screens/playlists';
-import PlaylistScreen from 'app/screens/playlist';
-import NewPlaylistScreen from 'app/screens/new-playlist';
-import { PlaylistsStackParams } from 'app/navigation/types';
-import { navigatorScreenOptions } from 'app/navigation/navigator-screen-options';
+import createStackNavigator from 'app/navigation/create-stack-navigator'
+import PlaylistsScreen from 'app/screens/playlists'
+import PlaylistScreen from 'app/screens/playlist'
+import NewPlaylistScreen from 'app/screens/new-playlist'
+import { PlaylistsStackParams } from 'app/navigation/types'
+import { navigatorScreenOptions } from 'app/navigation/navigator-screen-options'
 
-const PlaylistsStack = createStackNavigator<PlaylistsStackParams>();
+const PlaylistsStack = createStackNavigator<PlaylistsStackParams>()
 
 function PlaylistsNavigator() {
   return (
@@ -34,7 +34,7 @@ function PlaylistsNavigator() {
         <PlaylistsStack.Screen name="new" component={NewPlaylistScreen} />
       </PlaylistsStack.Group>
     </PlaylistsStack.Navigator>
-  );
+  )
 }
 
-export default PlaylistsNavigator;
+export default PlaylistsNavigator

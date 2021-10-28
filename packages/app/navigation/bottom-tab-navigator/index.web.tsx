@@ -1,22 +1,22 @@
-import React, { useCallback } from 'react';
+import React, { useCallback } from 'react'
 
-import { TabBarIcon } from 'app/navigation/tab-bar-icon';
-import type { NextNavigationProps } from 'app/navigation/types';
-import { BottomTab } from './types';
-import { useRouter } from 'app/navigation/use-router';
+import { TabBarIcon } from 'app/navigation/tab-bar-icon'
+import type { NextNavigationProps } from 'app/navigation/types'
+import { BottomTab } from './types'
+import { useRouter } from 'app/navigation/use-router'
 
 export function BottomTabNavigator({
   Component,
   pageProps
 }: NextNavigationProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   const component = useCallback(
     (props) => {
-      return <Component {...pageProps} {...props} />;
+      return <Component {...pageProps} {...props} />
     },
     [Component, pageProps]
-  );
+  )
 
   return (
     <BottomTab.Navigator
@@ -39,8 +39,8 @@ export function BottomTabNavigator({
         name="homeTab"
         listeners={{
           tabPress: (e) => {
-            e.preventDefault();
-            router.push('/');
+            e.preventDefault()
+            router.push('/')
           }
         }}
         options={{
@@ -53,8 +53,8 @@ export function BottomTabNavigator({
         name="playlistsTab"
         listeners={{
           tabPress: (e) => {
-            e.preventDefault();
-            router.push('/playlists');
+            e.preventDefault()
+            router.push('/playlists')
           }
         }}
         options={{
@@ -67,8 +67,8 @@ export function BottomTabNavigator({
         name="profileTab"
         listeners={{
           tabPress: (e) => {
-            e.preventDefault();
-            router.push('/profile');
+            e.preventDefault()
+            router.push('/profile')
           }
         }}
         options={{
@@ -78,5 +78,5 @@ export function BottomTabNavigator({
         {component}
       </BottomTab.Screen>
     </BottomTab.Navigator>
-  );
+  )
 }

@@ -67,6 +67,6 @@ export function useRouter() {
         }
       },
       [router, navigation]
-    ),
+    )
   }
 }
