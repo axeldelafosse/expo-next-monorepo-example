@@ -12,7 +12,10 @@ import { createNextTabNavigator } from './universal-tab-navigator'
 
 const BottomTab = createNextTabNavigator()
 
-export function NextTabNavigator(props: NextNavigationProps) {
+export function NextTabNavigator({
+  pageProps,
+  Component
+}: NextNavigationProps) {
   return (
     <BottomTab.Navigator
       initialRouteName="homeTab"
@@ -29,6 +32,8 @@ export function NextTabNavigator(props: NextNavigationProps) {
         },
         lazy: true
       }}
+      Component={Component}
+      pageProps={pageProps}
     >
       <BottomTab.Screen
         name="homeTab"

@@ -15,6 +15,8 @@ import {
   BottomTabNavigationConfig
 } from '@react-navigation/bottom-tabs/lib/typescript/src/types'
 import { useBuildLink } from './build-link'
+import { Children, useCallback, cloneElement } from 'react'
+import { NextNavigationProps } from '../types'
 
 const { Navigator } = createBottomTabNavigator()
 
@@ -25,11 +27,25 @@ type Props = DefaultNavigatorOptions<
   BottomTabNavigationEventMap
 > &
   TabRouterOptions &
-  BottomTabNavigationConfig
+  BottomTabNavigationConfig &
+  NextNavigationProps
 
-function BottomTabNavigator({ screenListeners, ...props }: Props) {
+function BottomTabNavigator({
+  screenListeners,
+  children,
+  Component,
+  pageProps = {},
+  ...props
+}: Props) {
   const nextRouter = useRouter()
   const buildLink = useBuildLink()
+
+  const nextComponentChild = useCallback(
+    (props) => {
+      return <Component {...pageProps} {...props} />
+    },
+    [Component, ...Object.values(pageProps)]
+  )
 
   return (
     <Navigator
@@ -45,7 +61,24 @@ function BottomTabNavigator({ screenListeners, ...props }: Props) {
           }
         }
       })}
-    />
+    >
+      {Children.map(children, (child) => {
+        if (nextRouter && Component) {
+          const childProps = { ...(child as any).props }
+
+          delete childProps.component
+          delete childProps.getComponent
+
+          return cloneElement(child as any, {
+            component: undefined,
+            getComponet: undefined,
+            children: nextComponentChild
+          })
+        }
+
+        return child
+      })}
+    </Navigator>
   )
 }
 
