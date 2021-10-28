@@ -13,7 +13,6 @@ import { createNextTabNavigator } from './universal-tab-navigator'
 const BottomTab = createNextTabNavigator()
 
 export function NextTabNavigator(props: NextNavigationProps) {
-  console.log('[next-tabs]')
   return (
     <BottomTab.Navigator
       initialRouteName="homeTab"

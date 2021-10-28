@@ -38,22 +38,17 @@ export function BottomTabNavigator({
     >
       <BottomTab.Screen
         name="homeTab"
-        listeners={({ navigation, route }) => ({
+        listeners={{
           tabPress: (e) => {
             if (router) {
-              console.log('[tab-press]', route.name)
               e.preventDefault()
-              // const action = {
-              //   ...CommonActions.navigate({ name: route.name, merge: true }),
-              //   target: route.key
-              // }
               router.push('/')
             }
           }
-        })}
-        options={({ navigation }) => ({
+        }}
+        options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />
-        })}
+        }}
       >
         {component}
       </BottomTab.Screen>
