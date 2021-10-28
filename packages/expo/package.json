@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4.0.0-alpha.30",
-    "@react-navigation/bottom-tabs": "^6.0.5",
-    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/bottom-tabs": "^6.0.9",
+    "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.1.0",
     "@react-navigation/stack": "^6.0.9",
     "@sentry/react-native": "^2.6.2",

@@ -1,22 +1,23 @@
-import React, { useCallback } from 'react';
+import React, { useCallback } from 'react'
 
-import { TabBarIcon } from 'app/navigation/tab-bar-icon';
-import type { NextNavigationProps } from 'app/navigation/types';
-import { BottomTab } from './types';
-import { useRouter } from 'app/navigation/use-router';
+import { CommonActions } from '@react-navigation/native'
+import { TabBarIcon } from 'app/navigation/tab-bar-icon'
+import type { NextNavigationProps } from 'app/navigation/types'
+import { BottomTab } from './types'
+import { useRouter } from 'app/navigation/use-router'
 
 export function BottomTabNavigator({
   Component,
   pageProps
 }: NextNavigationProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   const component = useCallback(
     (props) => {
-      return <Component {...pageProps} {...props} />;
+      return <Component {...pageProps} {...props} />
     },
     [Component, pageProps]
-  );
+  )
 
   return (
     <BottomTab.Navigator
@@ -37,15 +38,22 @@ export function BottomTabNavigator({
     >
       <BottomTab.Screen
         name="homeTab"
-        listeners={{
+        listeners={({ navigation, route }) => ({
           tabPress: (e) => {
-            e.preventDefault();
-            router.push('/');
+            if (router) {
+              console.log('[tab-press]', route.name)
+              e.preventDefault()
+              // const action = {
+              //   ...CommonActions.navigate({ name: route.name, merge: true }),
+              //   target: route.key
+              // }
+              router.push('/')
+            }
           }
-        }}
-        options={{
+        })}
+        options={({ navigation }) => ({
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />
-        }}
+        })}
       >
         {component}
       </BottomTab.Screen>
@@ -53,8 +61,8 @@ export function BottomTabNavigator({
         name="playlistsTab"
         listeners={{
           tabPress: (e) => {
-            e.preventDefault();
-            router.push('/playlists');
+            e.preventDefault()
+            router.push('/playlists')
           }
         }}
         options={{
@@ -67,8 +75,8 @@ export function BottomTabNavigator({
         name="profileTab"
         listeners={{
           tabPress: (e) => {
-            e.preventDefault();
-            router.push('/profile');
+            e.preventDefault()
+            router.push('/profile')
           }
         }}
         options={{
@@ -78,5 +86,5 @@ export function BottomTabNavigator({
         {component}
       </BottomTab.Screen>
     </BottomTab.Navigator>
-  );
+  )
 }

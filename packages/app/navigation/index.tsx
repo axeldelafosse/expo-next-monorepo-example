@@ -1,34 +1,35 @@
-import React, { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react'
 import {
   NavigationContainer,
   useLinkTo,
   LinkingOptions
-} from '@react-navigation/native';
-import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+} from '@react-navigation/native'
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 
-import { linking } from 'app/navigation/linking';
-import { BottomTabNavigator } from 'app/navigation/bottom-tab-navigator';
-import type { NextNavigationProps } from 'app/navigation/types';
-import Router from 'next/router';
-import { Platform } from 'react-native';
+import { linking } from 'app/navigation/linking'
+import { BottomTabNavigator } from 'app/navigation/bottom-tab-navigator'
+import type { NextNavigationProps } from 'app/navigation/types'
+import Router from 'next/router'
+import { Platform } from 'react-native'
+import { NextTabNavigator } from 'app/navigation/next-tab-navigator'
 
 function LinkTo() {
-  const linkTo = useLinkTo();
+  const linkTo = useLinkTo()
 
   useEffect(function trigger() {
     if (Platform.OS === 'web' && Router) {
       const handler = (path: string) => {
-        linkTo(path);
-      };
-      Router.events.on('routeChangeComplete', handler);
+        linkTo(path)
+      }
+      Router.events.on('routeChangeComplete', handler)
 
       return () => {
-        Router.events.off('routeChangeComplete', handler);
-      };
+        Router.events.off('routeChangeComplete', handler)
+      }
     }
-  }, []);
+  }, [])
 
-  return null;
+  return null
 }
 
 function useLinkingConfig(
@@ -40,17 +41,17 @@ function useLinkingConfig(
       () =>
         Platform.select({
           web: () => {
-            trackedLinking.current.enabled = false;
+            trackedLinking.current.enabled = false
           }
         }),
       []
     )
-  };
+  }
 }
 
 export function Navigation({ Component, pageProps }: NextNavigationProps) {
-  const trackedLinking = useRef(linking);
-  const linkingConfig = useLinkingConfig(trackedLinking);
+  const trackedLinking = useRef(linking)
+  const linkingConfig = useLinkingConfig(trackedLinking)
 
   return (
     <NavigationContainer
@@ -75,8 +76,9 @@ export function Navigation({ Component, pageProps }: NextNavigationProps) {
     >
       <LinkTo />
       <BottomSheetModalProvider>
-        <BottomTabNavigator Component={Component} pageProps={pageProps} />
+        <NextTabNavigator Component={Component} pageProps={pageProps} />
+        {/* <BottomTabNavigator Component={Component} pageProps={pageProps} /> */}
       </BottomSheetModalProvider>
     </NavigationContainer>
-  );
+  )
 }
