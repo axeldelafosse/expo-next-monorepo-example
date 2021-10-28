@@ -64,11 +64,6 @@ function BottomTabNavigator({
     >
       {Children.map(children, (child) => {
         if (nextRouter && Component) {
-          const childProps = { ...(child as any).props }
-
-          delete childProps.component
-          delete childProps.getComponent
-
           return cloneElement(child as any, {
             component: undefined,
             getComponet: undefined,
