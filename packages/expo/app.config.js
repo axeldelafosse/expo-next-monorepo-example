@@ -1,5 +1,5 @@
-const STAGE = process.env.STAGE;
-const SCHEME = process.env.SCHEME ?? 'com.example';
+const STAGE = process.env.STAGE
+const SCHEME = process.env.SCHEME ?? 'com.example'
 
 const envConfig = {
   development: {
@@ -17,9 +17,9 @@ const envConfig = {
     icon: './assets/icon.png',
     backgroundColor: '#1610FF'
   }
-};
+}
 
-const config = envConfig[STAGE ?? 'development'];
+const config = envConfig[STAGE ?? 'development']
 
 export default {
   name: 'Example',
@@ -69,4 +69,4 @@ export default {
     STAGE: process.env.STAGE
   }
   // plugins: ['sentry-expo']
-};
+}

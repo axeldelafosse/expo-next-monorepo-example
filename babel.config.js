@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
 
   return {
     babelrcRoots: ['.', './packages/*'],
@@ -10,5 +10,5 @@ module.exports = function (api) {
       ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
       'react-native-reanimated/plugin'
     ]
-  };
-};
+  }
+}
