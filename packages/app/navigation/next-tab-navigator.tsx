@@ -3,12 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon'
 
-import HomeNavigator from 'app/pages/home'
-import PlaylistsNavigator from 'app/pages/playlists'
-import ProfileNavigator from 'app/pages/profile'
+import dynamic from 'next/dynamic'
+
+const HomeNavigator = dynamic(() => import('../pages/home'))
+const PlaylistsNavigator = dynamic(() => import('../pages/playlists'))
+const ProfileNavigator = dynamic(() => import('../pages/profile'))
+
 import { NextNavigationProps } from './types'
 import { createNextTabNavigator } from './universal-tab-navigator'
-// import { BottomTab } from './bottom-tab-navigator/types';
 
 const BottomTab = createNextTabNavigator()
 

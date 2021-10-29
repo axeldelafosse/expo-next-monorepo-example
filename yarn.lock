@@ -1153,10 +1153,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dripsy/core@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@dripsy/core/-/core-3.0.3.tgz#6e0b9e20df410ae1f40ab2d688c1a2410bad5b95"
-  integrity sha512-RZgLRH62TC/HlU4GoEzlT1Lu+UyL/I/HrckrmXnNd2MNtAhzcMkJM3VCPfZveNbneFMiD0jit9iJv30mZaBNDQ==
+"@dripsy/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@dripsy/core/-/core-3.1.0.tgz#c1a120f4ed1b19e7fff59895ada986560ceab8e7"
+  integrity sha512-KMvylmmpRs5V30fMqi1GgxiWxhGCW/Dm0kbChX5ECcDmbDkyvLwQQcSdoNPd5nKMRgq+GlA2aap3YKOlr1QmWw==
   dependencies:
     "@expo/html-elements" "^0.0.1"
     "@react-native-community/hooks" "^2.6.0"
@@ -4928,12 +4928,12 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
-dripsy@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/dripsy/-/dripsy-3.0.3.tgz#d817d966d67cd94fc6465ab15a27523d6cc833df"
-  integrity sha512-3p8eNeEkvI+14KyhdgB6SDbWryCGo9fveyqSwUbuSR4CKcEVA6Bj7lM1Cfip8m533pwBezjKSlO3LCfNllVovA==
+dripsy@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/dripsy/-/dripsy-3.1.0.tgz#2bd67c59d9459f67d669b4158f815270048cbbe1"
+  integrity sha512-wL7bjJJ6qOEbSohWzolE+VGPcUm/JRjKb+C74e89rLBBpXVv73C15lWvQMNR/r10o06MK9/PFJwM9sBZ06jeZA==
   dependencies:
-    "@dripsy/core" "^3.0.3"
+    "@dripsy/core" "^3.1.0"
 
 duplexer@^0.1.1, duplexer@^0.1.2:
   version "0.1.2"
