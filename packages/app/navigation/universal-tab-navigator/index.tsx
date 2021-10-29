@@ -67,7 +67,7 @@ function BottomTabNavigator({
         if (nextRouter && Component) {
           return cloneElement(child as any, {
             component: undefined,
-            getComponet: undefined,
+            getComponent: undefined,
             children: nextComponentChild
           })
         }
