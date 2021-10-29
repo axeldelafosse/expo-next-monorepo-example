@@ -15,8 +15,9 @@ export const navigatorScreenOptions = ({
     // @ts-expect-error web only
     borderBottomWidth: 0
   },
-  headerLeft:
-    Platform.OS === 'web'
-      ? (props) => <HeaderBackButton navigation={navigation} {...props} />
-      : null
+  headerLeft: Platform.select({
+    web(props) {
+      return <HeaderBackButton navigation={navigation} {...props} />
+    }
+  })
 })
