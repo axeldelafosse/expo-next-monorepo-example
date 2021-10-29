@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon'
 
