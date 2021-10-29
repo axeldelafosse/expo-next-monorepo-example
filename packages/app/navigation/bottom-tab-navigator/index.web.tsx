@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
 
-import { CommonActions } from '@react-navigation/native'
 import { TabBarIcon } from 'app/navigation/tab-bar-icon'
 import type { NextNavigationProps } from 'app/navigation/types'
 import { BottomTab } from './types'
@@ -40,10 +39,8 @@ export function BottomTabNavigator({
         name="homeTab"
         listeners={{
           tabPress: (e) => {
-            if (router) {
-              e.preventDefault()
-              router.push('/')
-            }
+            e.preventDefault()
+            router.push('/')
           }
         }}
         options={{

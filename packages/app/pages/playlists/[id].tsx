@@ -1,3 +1,3 @@
-import PlaylistsNavigator from './index';
+import PlaylistsNavigator from './index'
 
-export default PlaylistsNavigator;
+export default PlaylistsNavigator

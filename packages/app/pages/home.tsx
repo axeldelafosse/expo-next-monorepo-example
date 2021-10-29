@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import createStackNavigator from 'app/navigation/create-stack-navigator';
-import HomeScreen from 'app/screens/home';
-import { HomeStackParams } from 'app/navigation/types';
-import { navigatorScreenOptions } from 'app/navigation/navigator-screen-options';
+import createStackNavigator from 'app/navigation/create-stack-navigator'
+import HomeScreen from 'app/screens/home'
+import { HomeStackParams } from 'app/navigation/types'
+import { navigatorScreenOptions } from 'app/navigation/navigator-screen-options'
 
-const HomeStack = createStackNavigator<HomeStackParams>();
+const HomeStack = createStackNavigator<HomeStackParams>()
 
 function HomeNavigator() {
   return (
@@ -16,7 +16,7 @@ function HomeNavigator() {
         options={{ title: 'Home', headerTitle: 'Hello World' }}
       />
     </HomeStack.Navigator>
-  );
+  )
 }
 
-export default HomeNavigator;
+export default HomeNavigator

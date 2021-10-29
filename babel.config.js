@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
 
   return {
     babelrcRoots: ['.', './packages/*'],
@@ -15,5 +15,5 @@ module.exports = function (api) {
         plugins: ['@babel/plugin-proposal-class-properties']
       }
     ]
-  };
-};
+  }
+}
