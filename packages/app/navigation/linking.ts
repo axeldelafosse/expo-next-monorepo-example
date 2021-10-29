@@ -1,61 +1,61 @@
-import * as Linking from 'expo-linking';
-import type { NavigationContainer } from '@react-navigation/native';
-import type { BottomTabNavigatorParams } from './bottom-tab-navigator/types';
+import * as Linking from 'expo-linking'
+import type { NavigationContainer } from '@react-navigation/native'
+import type { BottomTabNavigatorParams } from './bottom-tab-navigator/types'
 import {
   HomeStackParams,
   PlaylistsStackParams,
   ProfileStackParams
-} from './types';
+} from './types'
 
-type Props = React.ComponentProps<typeof NavigationContainer>['linking'];
+type Props = React.ComponentProps<typeof NavigationContainer>['linking']
 
 function makeTabPath<Path extends keyof BottomTabNavigatorParams>(
   path: Path
 ): Path {
-  return path;
+  return path
 }
 
 function makePlaylistsStackPath<Path extends keyof PlaylistsStackParams>(
   path: Path
 ): Path {
-  return path;
+  return path
 }
 
 function makeProfileStackPath<Path extends keyof ProfileStackParams>(
   path: Path
 ): Path {
-  return path;
+  return path
 }
 
 function makeHomeStackPath<Path extends keyof HomeStackParams>(
   path: Path
 ): Path {
-  return path;
+  return path
 }
 
 function makeType<T>(t: T) {
-  return t;
+  return t
 }
 
 const playlistsStackPaths = makeType({
   playlists: makePlaylistsStackPath('playlists'),
   playlist: makePlaylistsStackPath('playlist'),
   new: makePlaylistsStackPath('new')
-});
+})
 
 const profileStackPaths = makeType({
   profile: makeProfileStackPath('profile')
-});
+})
 
 const homeStackPaths = makeType({
   home: makeHomeStackPath('home')
-});
+})
 
 const tabPaths = makeType({
   home: makeTabPath('homeTab'),
   playlists: makeTabPath('playlistsTab'),
   profile: makeTabPath('profileTab')
-});
+})
 
 const linking: Props = {
   prefixes: [Linking.makeUrl('/')],
@@ -86,6 +86,6 @@ const linking: Props = {
       }
     }
   }
-};
+}
 
-export { linking };
+export { linking }

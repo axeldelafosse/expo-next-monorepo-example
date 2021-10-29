@@ -1,17 +1,17 @@
 // From https://gist.github.com/nandorojo/052887f99bb61b54845474f324aa41cc
 
-import { useCallback, useMemo, useRef, useState, useEffect } from 'react';
-import { useRouting } from 'expo-next-react-navigation';
-import { Platform } from 'react-native';
-import Router from 'next/router';
+import { useCallback, useMemo, useRef, useState, useEffect } from 'react'
+import { useRouting } from 'expo-next-react-navigation'
+import { Platform } from 'react-native'
+import Router from 'next/router'
 
 function useStable<T>(value: T) {
-  const ref = useRef(value);
+  const ref = useRef(value)
   useEffect(() => {
-    ref.current = value;
-  }, [value]);
+    ref.current = value
+  }, [value])
 
-  return ref;
+  return ref
 }
 
 type Config<
@@ -21,15 +21,15 @@ type Config<
   InitialValue
 > = (Required extends false
   ? {
-      parse?: (value?: string) => ParsedType;
+      parse?: (value?: string) => ParsedType
     }
   : {
-      parse: (value?: string) => ParsedType;
+      parse: (value?: string) => ParsedType
     }) & {
-  stringify?: (value: ParsedType) => string;
-  initial: InitialValue;
-  paramsToClearOnSetState?: (keyof Props)[];
-};
+  stringify?: (value: ParsedType) => string
+  initial: InitialValue
+  paramsToClearOnSetState?: (keyof Props)[]
+}
 
 type Params<
   Props extends Record<string, unknown> = Record<string, string>,
@@ -52,7 +52,7 @@ type Params<
   ?
       | [name: Name, config: Config<Props, false, ParsedType, InitialValue>]
       | [name: Name]
-  : [name: Name, config: Config<Props, true, ParsedType, InitialValue>];
+  : [name: Name, config: Config<Props, true, ParsedType, InitialValue>]
 
 type Returns<
   Props extends Record<string, unknown> = Record<string, string>,
@@ -74,7 +74,7 @@ type Returns<
 > = readonly [
   state: ParsedType | InitialValue,
   setState: (value: ParsedType) => void
-];
+]
 
 export function createParam<
   Props extends Record<string, unknown> = Record<string, string>
@@ -117,40 +117,40 @@ export function createParam<
       initial,
       stringify = (value: ParsedType) => `${value}`,
       paramsToClearOnSetState
-    } = maybeConfig || {};
-    const router = useRouting();
+    } = maybeConfig || {}
+    const router = useRouting()
     const [nativeState, setNativeState] = useState<ParsedType | InitialValue>(
       (initial as InitialValue) ?? router?.params?.[name as string]
-    );
+    )
 
-    const stableStringify = useStable(stringify);
-    const stableParse = useStable(parse);
-    const stableParamsToClear = useStable(paramsToClearOnSetState);
+    const stableStringify = useStable(stringify)
+    const stableParse = useStable(parse)
+    const stableParamsToClear = useStable(paramsToClearOnSetState)
 
-    const initialValue = useRef(initial);
-    const hasSetState = useRef(false);
+    const initialValue = useRef(initial)
+    const hasSetState = useRef(false)
 
     const setState = useCallback(
       (value: ParsedType) => {
-        hasSetState.current = true;
-        const { pathname, query } = Router;
-        const newQuery = { ...query };
+        hasSetState.current = true
+        const { pathname, query } = Router
+        const newQuery = { ...query }
         if (value != null) {
-          newQuery[name as string] = stableStringify.current(value);
+          newQuery[name as string] = stableStringify.current(value)
         } else {
-          delete newQuery[name as string];
+          delete newQuery[name as string]
         }
 
         if (stableParamsToClear.current) {
           for (const paramKey of stableParamsToClear.current) {
-            delete newQuery[paramKey as string];
+            delete newQuery[paramKey as string]
           }
         }
 
         const willChangeExistingParam =
-          query[name as string] && newQuery[name as string];
+          query[name as string] && newQuery[name as string]
 
-        const action = willChangeExistingParam ? Router.replace : Router.push;
+        const action = willChangeExistingParam ? Router.replace : Router.push
 
         action(
           {
@@ -161,33 +161,33 @@ export function createParam<
           {
             shallow: true
           }
-        );
+        )
       },
       [name, stableStringify, stableParamsToClear]
-    );
+    )
 
-    const webParam: string | undefined = router.getParam(name as string);
+    const webParam: string | undefined = router.getParam(name as string)
 
     const state = useMemo<ParsedType>(() => {
-      let state: ParsedType;
+      let state: ParsedType
       if (webParam === undefined && !hasSetState.current) {
-        state = initialValue.current as any;
+        state = initialValue.current as any
       } else if (stableParse.current) {
-        state = stableParse.current?.(webParam);
+        state = stableParse.current?.(webParam)
       } else {
-        state = webParam as any;
+        state = webParam as any
       }
-      return state;
-    }, [stableParse, webParam]);
+      return state
+    }, [stableParse, webParam])
 
     if (Platform.OS !== 'web') {
-      return [nativeState, setNativeState];
+      return [nativeState, setNativeState]
     }
 
-    return [state, setState];
+    return [state, setState]
   }
 
   return {
     useParam
-  };
+  }
 }

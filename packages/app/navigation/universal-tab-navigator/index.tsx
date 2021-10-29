@@ -1,5 +1,6 @@
 // https://reactnavigation.org/docs/custom-navigators/#type-checking-navigators
 
+import React from 'react'
 import {
   createNavigatorFactory,
   DefaultNavigatorOptions,
@@ -66,7 +67,7 @@ function BottomTabNavigator({
         if (nextRouter && Component) {
           return cloneElement(child as any, {
             component: undefined,
-            getComponet: undefined,
+            getComponent: undefined,
             children: nextComponentChild
           })
         }

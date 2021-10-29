@@ -7,7 +7,7 @@ import {
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 
 import { linking } from 'app/navigation/linking'
-import { BottomTabNavigator } from 'app/navigation/bottom-tab-navigator'
+// import { BottomTabNavigator } from 'app/navigation/bottom-tab-navigator'
 import type { NextNavigationProps } from 'app/navigation/types'
 import Router from 'next/router'
 import { Platform } from 'react-native'

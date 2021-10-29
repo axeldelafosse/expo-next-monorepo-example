@@ -1,20 +1,20 @@
-import React from 'react';
-import { Text } from 'dripsy';
+import React from 'react'
+import { Text } from 'dripsy'
 
-import { createParam } from 'app/navigation/use-param';
-import type { PlaylistScreenProps } from 'app/navigation/types';
+import { createParam } from 'app/navigation/use-param'
+import type { PlaylistScreenProps } from 'app/navigation/types'
 
 type Query = {
-  id: string;
-};
+  id: string
+}
 
-const { useParam } = createParam<Query>();
+const { useParam } = createParam<Query>()
 
 export default function PlaylistScreen({
   navigation,
   route
 }: PlaylistScreenProps) {
-  const [id, setId] = useParam('id');
+  const [id, setId] = useParam('id')
 
-  return <Text sx={{ color: 'white' }}>Playlist {id}</Text>;
+  return <Text sx={{ color: 'white' }}>Playlist {id}</Text>
 }

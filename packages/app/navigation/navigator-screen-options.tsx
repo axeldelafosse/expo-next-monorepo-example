@@ -1,7 +1,7 @@
-import { Platform } from 'react-native';
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import { Platform } from 'react-native'
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack'
 
-import { HeaderBackButton } from 'app/navigation/header-back-button';
+import { HeaderBackButton } from 'app/navigation/header-back-button'
 
 export const navigatorScreenOptions: NativeStackNavigationOptions = {
   animationEnabled: true,
@@ -15,4 +15,4 @@ export const navigatorScreenOptions: NativeStackNavigationOptions = {
   },
   headerLeft:
     Platform.OS === 'web' ? (props) => <HeaderBackButton {...props} /> : null
-};
+}

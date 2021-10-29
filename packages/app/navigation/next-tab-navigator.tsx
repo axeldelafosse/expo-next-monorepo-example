@@ -1,16 +1,13 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import dynamic from 'next/dynamic'
 
 import { TabBarIcon } from 'app/navigation/tab-bar-icon'
-
-import dynamic from 'next/dynamic'
+import { NextNavigationProps } from './types'
+import { createNextTabNavigator } from './universal-tab-navigator'
 
 const HomeNavigator = dynamic(() => import('../pages/home'))
 const PlaylistsNavigator = dynamic(() => import('../pages/playlists'))
 const ProfileNavigator = dynamic(() => import('../pages/profile'))
-
-import { NextNavigationProps } from './types'
-import { createNextTabNavigator } from './universal-tab-navigator'
 
 const BottomTab = createNextTabNavigator()
 

@@ -1,1 +1,1 @@
-export { default } from 'app/pages/playlists';
+export { default } from 'app/pages/playlists'

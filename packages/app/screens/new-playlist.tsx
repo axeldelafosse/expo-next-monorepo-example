@@ -1,12 +1,12 @@
-import React from 'react';
-import { Platform, Button, useWindowDimensions } from 'react-native';
-import { View, Text, TextInput } from 'dripsy';
+import React from 'react'
+import { Platform, Button, useWindowDimensions } from 'react-native'
+import { View, Text, TextInput } from 'dripsy'
 
-import { useRouter } from 'app/navigation/use-router';
+import { useRouter } from 'app/navigation/use-router'
 
 export default function NewPlaylistScreen() {
-  const { width } = useWindowDimensions();
-  const router = useRouter();
+  const { width } = useWindowDimensions()
+  const router = useRouter()
 
   return (
     <>
@@ -84,14 +84,14 @@ export default function NewPlaylistScreen() {
           <View sx={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
             <Button
               onPress={() => {
-                router.back();
+                router.back()
               }}
               title="Cancel"
             />
             <View sx={{ width: 8 }} />
             <Button
               onPress={() => {
-                router.back();
+                router.back()
               }}
               title="Create"
             />
@@ -99,12 +99,12 @@ export default function NewPlaylistScreen() {
         ) : (
           <Button
             onPress={() => {
-              router.back();
+              router.back()
             }}
             title="Create"
           />
         )}
       </View>
     </>
-  );
+  )
 }
