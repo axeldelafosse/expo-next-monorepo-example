@@ -11,9 +11,7 @@ export default function PlaylistsScreen() {
     <>
       <Button
         onPress={() => {
-          router.push(`/playlists/new`, `/playlists/new`, {
-            shallow: true
-          })
+          router.push(`/playlists/new`)
         }}
         title="New playlist"
       />
@@ -22,9 +20,7 @@ export default function PlaylistsScreen() {
         <Pressable
           key={index}
           onPress={() => {
-            router.push(`/playlists/[id]`, `/playlists/${index + 1}`, {
-              shallow: true
-            })
+            router.push(`/playlists/${index + 1}`)
           }}
         >
           <Text sx={{ color: 'white' }}>{`Playlist ${index + 1}`}</Text>
