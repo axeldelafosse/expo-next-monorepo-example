@@ -21,5 +21,8 @@
   },
   "private": true,
   "version": "1.0.0",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jimp": "^0.16.1"
+  }
 }
