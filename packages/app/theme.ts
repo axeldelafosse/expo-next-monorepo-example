@@ -1,5 +1,11 @@
-// https://github.com/nandorojo/dripsy#custom-theme
+// https://www.dripsy.xyz/usage/theming/create
+import { makeTheme } from 'dripsy'
 
-const theme = {}
+const theme = makeTheme({})
+
+type MyTheme = typeof theme
+declare module 'dripsy' {
+  interface DripsyCustomTheme extends MyTheme {}
+}
 
 export { theme }

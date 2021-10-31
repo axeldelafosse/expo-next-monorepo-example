@@ -1,9 +1,6 @@
 import '../styles/global.scss'
 
 import 'raf/polyfill'
-// @ts-ignore
-global.setImmediate = requestAnimationFrame
-import 'setimmediate'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import Head from 'next/head'
@@ -26,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <DripsyProvider theme={theme}>
-        <SafeAreaProvider style={{ backgroundColor: 'black' }}>
+        <SafeAreaProvider>
           <Navigation Component={Component} pageProps={pageProps} />
         </SafeAreaProvider>
       </DripsyProvider>
