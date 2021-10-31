@@ -15,8 +15,6 @@ type ProfileStackParams = {
   profile: { user?: unknown }
 }
 
-// type StackParams = ProfileStackParams & HomeStackParams & PlayListStackParams;
-
 type PlaylistsScreenProps = NativeStackScreenProps<
   PlaylistsStackParams,
   'playlists'
