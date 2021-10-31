@@ -1,24 +1,25 @@
 const STAGE = process.env.STAGE
+const SCHEME = process.env.SCHEME ?? 'com.example'
 
 const envConfig = {
   development: {
-    scheme: 'com.example.development',
+    scheme: `${SCHEME}.development`,
     icon: './assets/icon.development.png',
     backgroundColor: '#FF0000'
   },
   staging: {
-    scheme: 'com.example.staging',
+    scheme: `${SCHEME}.staging`,
     icon: './assets/icon.staging.png',
     backgroundColor: '#8000FF'
   },
   production: {
-    scheme: 'com.example',
+    scheme: SCHEME,
     icon: './assets/icon.png',
     backgroundColor: '#1610FF'
   }
 }
 
-const config = envConfig[STAGE || 'development']
+const config = envConfig[STAGE ?? 'development']
 
 export default {
   name: 'Example',
@@ -27,7 +28,6 @@ export default {
   scheme: 'example',
   owner: 'poolpoolpool',
   icon: config.icon,
-  sdkVersion: '42.0.0',
   version: '0.0.1',
   splash: {
     image: './assets/splash.png',
@@ -36,7 +36,8 @@ export default {
   },
   ios: {
     bundleIdentifier: config.scheme,
-    supportsTablet: true
+    supportsTablet: true,
+    jsEngine: 'hermes'
   },
   android: {
     package: config.scheme,
@@ -56,16 +57,16 @@ export default {
   updates: {
     fallbackToCacheTimeout: 0
   },
-  hooks: {
-    postPublish: [
-      {
-        file: 'sentry-expo/upload-sourcemaps',
-        config: {}
-      }
-    ]
-  },
+  // hooks: {
+  //   postPublish: [
+  //     {
+  //       file: 'sentry-expo/upload-sourcemaps',
+  //       config: {}
+  //     }
+  //   ]
+  // },
   extra: {
     STAGE: process.env.STAGE
-  },
-  plugins: ['sentry-expo']
+  }
+  // plugins: ['sentry-expo']
 }

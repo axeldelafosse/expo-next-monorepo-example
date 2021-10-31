@@ -1,8 +1,8 @@
 {
   "name": "expo-next-monorepo-example",
   "private": true,
+  "license": "MIT",
   "devDependencies": {
-    "expo-yarn-workspaces": "^1.5.1",
     "patch-package": "^6.4.7"
   },
   "workspaces": [
@@ -11,10 +11,13 @@
     "packages/next"
   ],
   "scripts": {
-    "start": "cd packages/expo && yarn start:expo",
-    "dev": "cd packages/next && yarn dev",
+    "dev:expo": "yarn workspace @expo-next-monorepo-example/expo dev",
+    "dev:next": "yarn workspace @expo-next-monorepo-example/next dev",
     "build": "cd packages/next && yarn build",
     "deploy": "vercel --prod --no-clipboard",
     "postinstall": "patch-package"
+  },
+  "resolutions": {
+    "babel-preset-expo": "^8.5.1"
   }
 }
