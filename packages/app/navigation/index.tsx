@@ -34,7 +34,9 @@ function LinkTo() {
 }
 
 function useLinkingConfig(
-  trackedLinking: React.MutableRefObject<LinkingOptions<{}>>
+  trackedLinking: React.MutableRefObject<
+    LinkingOptions<ReactNavigation.RootParamList>
+  >
 ) {
   return {
     linking: trackedLinking.current,
@@ -55,8 +57,6 @@ export function Navigation({ Component, pageProps }: NextNavigationProps) {
   const linkingConfig = useLinkingConfig(trackedLinking)
 
   const screen = useWindowDimensions()
-
-  const shouldShowSideBar = screen.width > 768
 
   return (
     <NavigationContainer
@@ -81,11 +81,9 @@ export function Navigation({ Component, pageProps }: NextNavigationProps) {
     >
       <LinkTo />
       <BottomSheetModalProvider>
-        {shouldShowSideBar ? (
-          <NextDrawerNavigator Component={Component} pageProps={pageProps} />
-        ) : (
-          <NextTabNavigator Component={Component} pageProps={pageProps} />
-        )}
+        {/* You can use the tabs or drawer - take your pick. */}
+        <NextDrawerNavigator Component={Component} pageProps={pageProps} />
+        {/* <NextTabNavigator Component={Component} pageProps={pageProps} /> */}
       </BottomSheetModalProvider>
     </NavigationContainer>
   )

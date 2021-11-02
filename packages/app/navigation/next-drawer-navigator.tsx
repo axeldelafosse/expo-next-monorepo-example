@@ -1,6 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-
+import { useWindowDimensions, Platform } from 'react-native'
 import { TabBarIcon } from 'app/navigation/tab-bar-icon'
 import { NextNavigationProps } from './types'
 import { createNextDrawerNavigator } from './create-next-drawer-navigator'
@@ -15,16 +15,20 @@ export function NextDrawerNavigator({
   pageProps,
   Component
 }: NextNavigationProps) {
+  const dimensions = useWindowDimensions()
+  const permanent = dimensions.width > 768
   return (
     <BottomTab.Navigator
       screenOptions={{
         lazy: true,
-        headerShown: false,
-        drawerType: 'permanent',
+        headerShown: !permanent,
+        drawerType: permanent ? 'permanent' : 'slide',
         drawerActiveBackgroundColor: '#333',
         drawerInactiveTintColor: '#888',
-        drawerActiveTintColor: 'white'
+        drawerActiveTintColor: 'white',
+        headerTintColor: 'white'
       }}
+      useLegacyImplementation={Platform.OS === 'web'}
       Component={Component}
       pageProps={pageProps}
     >

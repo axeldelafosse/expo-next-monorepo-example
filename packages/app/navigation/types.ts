@@ -1,5 +1,6 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 import type { NextComponentType, NextPageContext } from 'next'
+import { NavigatorScreenParams } from '@react-navigation/native'
 
 type PlaylistsStackParams = {
   playlists: undefined
@@ -32,11 +33,24 @@ type NextNavigationProps = {
   pageProps?: NextPageProps
 }
 
+type BottomTabNavigatorParams = {
+  homeTab: NavigatorScreenParams<HomeStackParams>
+  playlistsTab: NavigatorScreenParams<PlaylistsStackParams>
+  profileTab: NavigatorScreenParams<ProfileStackParams>
+}
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends BottomTabNavigatorParams {}
+  }
+}
+
 export type {
   PlaylistsScreenProps,
   PlaylistScreenProps,
   NextNavigationProps,
   PlaylistsStackParams,
   HomeStackParams,
-  ProfileStackParams
+  ProfileStackParams,
+  BottomTabNavigatorParams
 }
