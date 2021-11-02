@@ -111,6 +111,15 @@ export function DrawerItemList({
         labelStyle={drawerLabelStyle}
         style={drawerItemStyle}
         to={to}
+        // @ts-expect-error web only
+        onMouseEnter={
+          nextRouter &&
+          (() => {
+            if (to) {
+              nextRouter.prefetch(to)
+            }
+          })
+        }
         onPress={() => {
           if (nextRouter && to) {
             if (focused) {
