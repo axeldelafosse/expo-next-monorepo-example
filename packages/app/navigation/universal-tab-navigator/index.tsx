@@ -15,7 +15,7 @@ import {
   BottomTabNavigationEventMap,
   BottomTabNavigationConfig
 } from '@react-navigation/bottom-tabs/lib/typescript/src/types'
-import { useBuildLink } from './build-link'
+import { useBuildLink } from '../build-link'
 import { Children, useCallback, cloneElement } from 'react'
 import { NextNavigationProps } from '../types'
 
