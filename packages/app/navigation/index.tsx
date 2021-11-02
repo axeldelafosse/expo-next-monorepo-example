@@ -5,7 +5,6 @@ import {
   LinkingOptions
 } from '@react-navigation/native'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
-import { useWindowDimensions } from 'react-native'
 
 import { linking } from 'app/navigation/linking'
 import type { NextNavigationProps } from 'app/navigation/types'
@@ -55,8 +54,6 @@ function useLinkingConfig(
 export function Navigation({ Component, pageProps }: NextNavigationProps) {
   const trackedLinking = useRef(linking)
   const linkingConfig = useLinkingConfig(trackedLinking)
-
-  const screen = useWindowDimensions()
 
   return (
     <NavigationContainer
