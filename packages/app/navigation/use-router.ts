@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useRouter as useNextRouter, NextRouter } from 'next/router'
 import { useLinkTo, useNavigation } from '@react-navigation/native'
 
-const path = (from: Parameters<ReturnType<typeof useRouter>['push']>[0]) => {
+const parseNextPath = (from: Parameters<NextRouter['push']>[0]) => {
   let path = (typeof from == 'string' ? from : from.pathname) || ''
 
   // replace each instance of [key] with the corresponding value from query[key]
@@ -10,9 +10,22 @@ const path = (from: Parameters<ReturnType<typeof useRouter>['push']>[0]) => {
   // it currently ignores [...param]
   // but I can't see why you would use this with RN + Next.js
   if (typeof from == 'object' && from.query && typeof from.query == 'object') {
-    for (const key in from.query) {
-      if (from.query[key] != null) {
-        path = path.replace(`[${key}]`, `${from.query[key]}`)
+    const query = { ...from.query }
+    for (const key in query) {
+      if (path.includes(`[${key}]`)) {
+        path = path.replace(`[${key}]`, `${query[key] ?? ''}`)
+        delete query[key]
+      }
+    }
+    if (Object.keys(query).length) {
+      path += '?'
+      for (const key in query) {
+        if (query[key] != null) {
+          path += `${key}=${query[key]}&`
+        }
+      }
+      if (path.endsWith('&')) {
+        path = path.slice(0, -1)
       }
     }
   }
@@ -33,7 +46,7 @@ export function useRouter() {
         } else {
           const [url, as] = nextProps
 
-          const to = as ? path(as) : path(url)
+          const to = as ? parseNextPath(as) : parseNextPath(url)
 
           if (to) {
             linkTo(to)
@@ -49,7 +62,7 @@ export function useRouter() {
         } else {
           const [url, as] = nextProps
 
-          const to = as ? path(as) : path(url)
+          const to = as ? parseNextPath(as) : parseNextPath(url)
 
           if (to) {
             linkTo(to)
