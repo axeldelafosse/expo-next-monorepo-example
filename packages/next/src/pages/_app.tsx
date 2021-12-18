@@ -1,5 +1,5 @@
 import '../styles/global.scss'
-
+import React from 'react'
 import 'raf/polyfill'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'

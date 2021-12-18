@@ -12,17 +12,21 @@ const PlaylistsStack = createStackNavigator<PlaylistsStackParams>()
 
 function PlaylistsNavigator() {
   return (
-    <PlaylistsStack.Navigator screenOptions={navigatorScreenOptions}>
+    <PlaylistsStack.Navigator
+      initialRouteName="playlists"
+      screenOptions={navigatorScreenOptions}
+    >
       <PlaylistsStack.Group>
-        <PlaylistsStack.Screen
-          name="playlists"
-          component={PlaylistsScreen}
-          options={{ title: 'Playlists', headerTitle: 'Playlists' }}
-        />
         <PlaylistsStack.Screen
           name="playlist"
           component={PlaylistScreen}
           options={{ title: 'Playlist', headerTitle: 'Playlist' }}
+          getId={({ params }) => params?.id}
+        />
+        <PlaylistsStack.Screen
+          name="playlists"
+          component={PlaylistsScreen}
+          options={{ title: 'Playlists', headerTitle: 'Playlists' }}
         />
       </PlaylistsStack.Group>
       <PlaylistsStack.Group
