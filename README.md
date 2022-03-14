@@ -1,4 +1,14 @@
+# Solito
+
+You can now use [Solito](https://solito.dev/starter) instead:
+
+`npx create-solito-app@latest`
+
+---
+
 # Expo + Next.js Monorepo Example
+
+> This repo is deprecated in favor of Solito ⚠️
 
 Here is an example showing how to create a universal React app using Expo and Next.js in a monorepo.
 
