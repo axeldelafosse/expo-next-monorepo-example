@@ -1,4 +1,4 @@
-# Solito
+# ⚠️ This repo has moved to the Solito starter
 
 You can now use [Solito](https://solito.dev/starter) instead:
 
